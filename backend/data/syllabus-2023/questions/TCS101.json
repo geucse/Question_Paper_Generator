@@ -1,0 +1,348 @@
+{
+ "code": "TCS 101",
+ "verified_topics": {
+  "1": [
+   "Generation of computers",
+   "Computer system memory hierarchy",
+   "RAM/ROM",
+   "Software & Hardware",
+   "bit, byte, KB, MB, GB and their relations to each other",
+   "Operating System overview",
+   "Algorithms and Flow Charts"
+  ],
+  "2": [
+   "First C program - Hello world",
+   "How to read and print on screen",
+   "Variables and Data types",
+   "Life of a C program",
+   "Increment and decrement operators",
+   "bitwise operators",
+   "precedence and associativity"
+  ],
+  "3": [
+   "Conditional statements",
+   "switch statement",
+   "Loops",
+   "entry control and exit control",
+   "break and continue"
+  ],
+  "4": [
+   "Functions",
+   "call by value",
+   "Recursion v/s Iteration",
+   "Storage classes",
+   "C program memory"
+  ],
+  "5": [
+   "Arrays",
+   "computing address of an element in array",
+   "segmentation fault, bound checking",
+   "Searching and Sorting"
+  ]
+ },
+ "questions": [
+  {
+   "u": 1,
+   "t": "Generation of computers",
+   "type": "mcq",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "remember",
+   "diff": "easy",
+   "marks": 1,
+   "q": "Which switching technology characterises the second generation of computers?",
+   "opts": [
+    "Vacuum tubes",
+    "Transistors",
+    "Integrated circuits",
+    "Microprocessors"
+   ],
+   "ans": "B",
+   "model": "Second-generation computers replaced vacuum tubes with transistors."
+  },
+  {
+   "u": 1,
+   "t": "bit, byte, KB, MB, GB and their relations to each other",
+   "type": "numerical",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "apply",
+   "diff": "easy",
+   "marks": 2,
+   "q": "A file occupies 3 MB. Using binary prefixes (1 KB = 1024 bytes, 1 MB = 1024 KB), how many bytes does it occupy?",
+   "val": 3145728,
+   "tol": 0,
+   "unit": "bytes",
+   "model": "3 x 1024 x 1024 = 3,145,728 bytes."
+  },
+  {
+   "u": 1,
+   "t": "Computer system memory hierarchy",
+   "type": "short_answer",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "understand",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Explain the computer system memory hierarchy from registers to secondary storage, and state how access time, cost per bit and capacity change as one moves down the hierarchy.",
+   "model": "Registers, cache, main memory (RAM), secondary storage (disk/SSD). Moving down: access time increases, cost per bit decreases, capacity increases. Faster, costlier memory is kept small and close to the CPU."
+  },
+  {
+   "u": 1,
+   "t": "Algorithms and Flow Charts",
+   "type": "long_answer",
+   "co": [
+    "CO3"
+   ],
+   "bloom": "create",
+   "diff": "medium",
+   "marks": 6,
+   "q": "Write an algorithm and draw the corresponding flowchart that reads a positive integer N and prints the sum of its digits. Use a loop and show the decision symbol that terminates it.",
+   "model": "Algorithm: read N; sum = 0; while N > 0: sum = sum + N mod 10, N = N div 10; print sum. Flowchart: start, input N, initialise sum, decision 'N > 0?' (yes: update sum and N, loop back; no: output sum), stop."
+  },
+  {
+   "u": 2,
+   "t": "How to read and print on screen",
+   "type": "fill_blank",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "remember",
+   "diff": "easy",
+   "marks": 1,
+   "q": "In C, the standard library function ___ reads formatted input from the keyboard, and ___ writes a single character to the screen.",
+   "answers": [
+    "scanf()",
+    "putchar()"
+   ],
+   "model": "scanf() reads formatted input; putchar() writes one character."
+  },
+  {
+   "u": 2,
+   "t": "Life of a C program",
+   "type": "short_answer",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "understand",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Describe the stages in the life of a C program from source file to execution, naming the output of each stage.",
+   "model": "Preprocessing (expanded source, .i), compilation (assembly, .s), assembly (object code, .o), linking (executable), loading (program placed in memory), execution."
+  },
+  {
+   "u": 2,
+   "t": "Variables and Data types",
+   "type": "true_false",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 1,
+   "q": "True or False: In C, 'extern int count;' is a declaration that does not allocate storage for count, whereas 'int count = 0;' at file scope is a definition.",
+   "ans": "TRUE",
+   "model": "True. A declaration introduces the name and type; a definition also allocates storage."
+  },
+  {
+   "u": 2,
+   "t": "precedence and associativity",
+   "type": "numerical",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 2,
+   "q": "Using C operator precedence and associativity, what value does x hold after: int x = 10 - 4 / 2 * 3 + 7 % 3;",
+   "val": 5,
+   "tol": 0,
+   "model": "4/2 = 2, 2*3 = 6, 7%3 = 1; 10 - 6 + 1 = 5 (left to right)."
+  },
+  {
+   "u": 2,
+   "t": "bitwise operators",
+   "type": "assertion_reason",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "understand",
+   "diff": "medium",
+   "marks": 2,
+   "q": "Read the assertion and reason about bitwise operators and choose the correct option.",
+   "assertion": "For an unsigned int x, the expression x & 1 is 1 exactly when x is odd.",
+   "reason": "The least significant bit of a binary number is 1 for odd numbers and 0 for even numbers.",
+   "ans": "A",
+   "model": "Both are true and R explains A: masking with 1 isolates the least significant bit."
+  },
+  {
+   "u": 3,
+   "t": "Conditional statements",
+   "type": "programming",
+   "co": [
+    "CO4"
+   ],
+   "bloom": "apply",
+   "diff": "easy",
+   "marks": 5,
+   "q": "Write a C program that reads three integers and prints the largest of them using nested if-else statements.",
+   "lang": "C",
+   "model": "#include <stdio.h>\nint main(void) {\n    int a, b, c;\n    scanf(\"%d %d %d\", &a, &b, &c);\n    if (a >= b) {\n        if (a >= c) printf(\"%d\\n\", a); else printf(\"%d\\n\", c);\n    } else {\n        if (b >= c) printf(\"%d\\n\", b); else printf(\"%d\\n\", c);\n    }\n    return 0;\n}"
+  },
+  {
+   "u": 3,
+   "t": "switch statement",
+   "type": "short_answer",
+   "co": [
+    "CO4"
+   ],
+   "bloom": "analyze",
+   "diff": "medium",
+   "marks": 4,
+   "q": "A menu-driven program dispatches on an integer choice from 1 to 6. Compare an if-else ladder and a switch statement for this task in terms of readability and execution performance, and state which you would choose.",
+   "model": "switch on a small dense integer range compiles to a jump table (constant time) and reads as a list of cases; an if-else ladder evaluates conditions in sequence. switch is preferred; if-else suits ranges and non-integer conditions."
+  },
+  {
+   "u": 3,
+   "t": "entry control and exit control",
+   "type": "mcq",
+   "co": [
+    "CO4"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 1,
+   "q": "Which C loop executes its body at least once even when its condition is false at the start?",
+   "opts": [
+    "for",
+    "while",
+    "do while",
+    "None of these"
+   ],
+   "ans": "C",
+   "model": "do while is exit-controlled: the condition is tested after the body."
+  },
+  {
+   "u": 3,
+   "t": "break and continue",
+   "type": "numerical",
+   "co": [
+    "CO4"
+   ],
+   "bloom": "analyze",
+   "diff": "medium",
+   "marks": 3,
+   "q": "What is printed by: int s = 0; for (int i = 1; i <= 10; i++) { if (i % 3 == 0) continue; if (i > 8) break; s += i; } printf(\"%d\", s);",
+   "val": 27,
+   "tol": 0,
+   "model": "Adds 1,2,4,5,7,8 (3 and 6 skipped, loop breaks at 9): 1+2+4+5+7+8 = 27."
+  },
+  {
+   "u": 4,
+   "t": "Recursion v/s Iteration",
+   "type": "long_answer",
+   "co": [
+    "CO5"
+   ],
+   "bloom": "evaluate",
+   "diff": "hard",
+   "marks": 8,
+   "q": "Write recursive and iterative C functions to compute n! and use the function call stack to compare them for memory use and speed. Recommend one for n up to 20 and justify your choice.",
+   "model": "Recursive: return n <= 1 ? 1 : n * fact(n - 1); iterative loop multiplies 2..n. Recursion uses one stack frame per call (O(n) stack) and call overhead; iteration uses O(1) extra space. Use the iterative version (and unsigned long long, since 20! fits in 64 bits)."
+  },
+  {
+   "u": 4,
+   "t": "Storage classes",
+   "type": "mcq",
+   "co": [
+    "CO5"
+   ],
+   "bloom": "understand",
+   "diff": "medium",
+   "marks": 2,
+   "q": "A local variable must keep its value between successive calls of a function. Which storage class should it have?",
+   "opts": [
+    "auto",
+    "register",
+    "static",
+    "extern"
+   ],
+   "ans": "C",
+   "model": "A static local variable has static lifetime but block scope, so it keeps its value between calls."
+  },
+  {
+   "u": 4,
+   "t": "call by value",
+   "type": "short_answer",
+   "co": [
+    "CO5"
+   ],
+   "bloom": "analyze",
+   "diff": "medium",
+   "marks": 3,
+   "q": "A student writes void swap(int a, int b) { int t = a; a = b; b = t; } and calls swap(x, y), but x and y are unchanged. Explain why, using the call-by-value mechanism.",
+   "model": "C passes copies of the arguments; swap exchanges its local copies a and b, which are destroyed on return, so x and y in the caller are unchanged. Pointers would be needed to modify the caller's variables."
+  },
+  {
+   "u": 5,
+   "t": "computing address of an element in array",
+   "type": "numerical",
+   "co": [
+    "CO6"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 2,
+   "q": "An int array A[50] starts at base address 2000 and sizeof(int) is 4 bytes. What is the address of A[17]?",
+   "val": 2068,
+   "tol": 0,
+   "model": "Address = base + index x size = 2000 + 17 x 4 = 2068."
+  },
+  {
+   "u": 5,
+   "t": "Searching and Sorting",
+   "type": "programming",
+   "co": [
+    "CO6"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 6,
+   "q": "Write a C function int linear_search(int a[], int n, int key) that returns the index of key in a, or -1 if it is absent, and show a call from main for an array of 8 elements.",
+   "lang": "C",
+   "model": "int linear_search(int a[], int n, int key) {\n    for (int i = 0; i < n; i++)\n        if (a[i] == key) return i;\n    return -1;\n}\nint main(void) {\n    int a[8] = {4, 8, 15, 16, 23, 42, 7, 1};\n    printf(\"%d\\n\", linear_search(a, 8, 23));\n    return 0;\n}"
+  },
+  {
+   "u": 5,
+   "t": "segmentation fault, bound checking",
+   "type": "true_false",
+   "co": [
+    "CO6"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 1,
+   "q": "True or False: The C compiler checks array bounds at run time and stops the program when an index such as a[10] is used on int a[10].",
+   "ans": "FALSE",
+   "model": "False. C performs no bound checking; out-of-bounds access is undefined behaviour and may cause a segmentation fault."
+  },
+  {
+   "u": 5,
+   "t": "Arrays",
+   "type": "case_study",
+   "co": [
+    "CO6",
+    "CO4"
+   ],
+   "bloom": "create",
+   "diff": "hard",
+   "marks": 10,
+   "q": "Design a C program for the case: read the marks, store them in an array, and print the class average, the highest mark and how many students scored above the average.",
+   "case": "A teacher records the marks (0 to 100) of 30 students in a test and needs a short report: the class average, the highest mark, and the number of students who scored above the average.",
+   "model": "Declare int marks[30]; read with a loop; compute sum and max in one pass; average = sum / 30.0; second pass counts marks[i] > average; print the three results. Validate input range 0-100."
+  }
+ ]
+}

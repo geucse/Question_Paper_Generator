@@ -1,0 +1,23 @@
+# Keep the build context (and the image) free of local state, secrets and test-only files.
+node_modules
+npm-debug.log*
+.env
+.env.*
+uploads
+logs
+*.log
+dist
+coverage
+# Tests, smoke test and their fixtures are not needed at runtime (CI runs them from the checkout).
+test
+test-*.mjs
+smoketest-*.mjs
+# Local/test database files and dumps
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.dump
+*.sql.gz
+Dockerfile
+.dockerignore

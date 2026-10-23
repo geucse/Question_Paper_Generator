@@ -1,0 +1,34 @@
+version: "3.9"
+
+# Local development only. This gives you a real Postgres (with pgvector
+# already available for the semantic-similarity work coming in a later
+# phase) without installing anything on your host machine.
+#
+# Usage:
+#   docker compose up -d
+#   cd backend && npm run migrate && npm run seed && npm run dev
+#
+# The official pgvector image ships as a superuser-capable postgres image,
+# so `CREATE EXTENSION vector;` in migration 001 works without any extra
+# setup step (unlike a restricted-permission role on a shared server).
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: exam-portal-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: examportal
+      POSTGRES_PASSWORD: devpassword
+      POSTGRES_DB: examportal
+    ports:
+      - "5432:5432"
+    volumes:
+      - exam_portal_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U examportal -d examportal"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  exam_portal_pg_data:

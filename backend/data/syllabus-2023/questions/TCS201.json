@@ -1,0 +1,352 @@
+{
+ "code": "TCS 201",
+ "verified_topics": {
+  "1": [
+   "Multi-Dimensional Arrays",
+   "row major and column major form of an array",
+   "Declaration of strings",
+   "Initialization of strings using arrays and pointers",
+   "Standard library functions of string"
+  ],
+  "2": [
+   "Pointer arithmetic",
+   "passing pointers to functions",
+   "call by reference",
+   "Dynamic memory management in C",
+   "Dangling, Void, Null and Wild pointers",
+   "array of structures",
+   "union",
+   "self-referential structure"
+  ],
+  "3": [
+   "File modes",
+   "Reading and writing a text file",
+   "Reading and writing in a binary file",
+   "counting lines in a text file",
+   "Random file accessing methods"
+  ],
+  "4": [
+   "History of Python",
+   "Python features",
+   "Lines and indentation",
+   "Standard Data Types",
+   "Bitwise Operators"
+  ],
+  "5": [
+   "Control flow",
+   "range()",
+   "Handling functions in Python",
+   "copying one file to another"
+  ]
+ },
+ "questions": [
+  {
+   "u": 1,
+   "t": "row major and column major form of an array",
+   "type": "numerical",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 3,
+   "q": "int M[4][6] is stored in row-major order starting at address 1000, with sizeof(int) = 4 bytes. What is the address of M[2][3]?",
+   "val": 1060,
+   "tol": 0,
+   "model": "Row-major offset = (2 x 6 + 3) x 4 = 60 bytes; address = 1000 + 60 = 1060."
+  },
+  {
+   "u": 1,
+   "t": "Standard library functions of string",
+   "type": "mcq",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 1,
+   "q": "What does strcmp(\"apple\", \"banana\") return in C?",
+   "opts": [
+    "0",
+    "A negative value",
+    "A positive value",
+    "The length of the shorter string"
+   ],
+   "ans": "B",
+   "model": "strcmp returns a negative value when the first string sorts before the second ('a' < 'b')."
+  },
+  {
+   "u": 1,
+   "t": "Multi-Dimensional Arrays",
+   "type": "programming",
+   "co": [
+    "CO1",
+    "CO2"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 6,
+   "q": "Write a C function void transpose(int a[3][3], int t[3][3]) that stores the transpose of a in t, and a main() that prints the transpose of a matrix read from the user.",
+   "lang": "C",
+   "model": "void transpose(int a[3][3], int t[3][3]) {\n    for (int i = 0; i < 3; i++)\n        for (int j = 0; j < 3; j++)\n            t[j][i] = a[i][j];\n}\n/* main: read a[3][3] with nested loops, call transpose(a, t), print t row by row. */"
+  },
+  {
+   "u": 2,
+   "t": "Pointer arithmetic",
+   "type": "numerical",
+   "co": [
+    "CO3"
+   ],
+   "bloom": "apply",
+   "diff": "easy",
+   "marks": 2,
+   "q": "double d[10]; double *p = d; If d starts at address 5000 and sizeof(double) = 8, what address does p + 3 hold?",
+   "val": 5024,
+   "tol": 0,
+   "model": "Pointer arithmetic scales by the element size: 5000 + 3 x 8 = 5024."
+  },
+  {
+   "u": 2,
+   "t": "call by reference",
+   "type": "programming",
+   "co": [
+    "CO3"
+   ],
+   "bloom": "apply",
+   "diff": "easy",
+   "marks": 4,
+   "q": "Write a C function that swaps two integers in the caller using pointers (call by reference), and show how it is called.",
+   "lang": "C",
+   "model": "void swap(int *a, int *b) {\n    int t = *a;\n    *a = *b;\n    *b = t;\n}\n/* call: swap(&x, &y); */"
+  },
+  {
+   "u": 2,
+   "t": "Dynamic memory management in C",
+   "type": "short_answer",
+   "co": [
+    "CO3"
+   ],
+   "bloom": "analyze",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Compare malloc(), calloc() and realloc(): what each allocates, how memory is initialised, and when you would use each.",
+   "model": "malloc(size) allocates uninitialised bytes; calloc(n, size) allocates n elements and zero-initialises them; realloc(p, size) resizes an existing block, possibly moving it. Use calloc when zeroed memory is needed, realloc to grow a buffer, malloc otherwise."
+  },
+  {
+   "u": 2,
+   "t": "Dangling, Void, Null and Wild pointers",
+   "type": "assertion_reason",
+   "co": [
+    "CO3"
+   ],
+   "bloom": "analyze",
+   "diff": "medium",
+   "marks": 2,
+   "q": "Read the assertion and reason about dangling, Void, Null and Wild pointers and choose the correct option.",
+   "assertion": "After free(p); the pointer p becomes a dangling pointer.",
+   "reason": "free() sets p to NULL automatically.",
+   "ans": "C",
+   "model": "A is true: p still holds the address of released memory. R is false: free() does not change p; the programmer should set p = NULL."
+  },
+  {
+   "u": 2,
+   "t": "self-referential structure",
+   "type": "long_answer",
+   "co": [
+    "CO4",
+    "CO3"
+   ],
+   "bloom": "create",
+   "diff": "hard",
+   "marks": 8,
+   "q": "Define a self-referential structure for a student record (roll number, name, next) and write C code that builds a linked list of n students read from the user using dynamic memory allocation, then prints it.",
+   "model": "struct student { int roll; char name[30]; struct student *next; }; Loop n times: node = malloc(sizeof *node); read fields; node->next = NULL; append via tail pointer. Traverse from head printing each node; free nodes at the end."
+  },
+  {
+   "u": 3,
+   "t": "File modes",
+   "type": "mcq",
+   "co": [
+    "CO5"
+   ],
+   "bloom": "remember",
+   "diff": "easy",
+   "marks": 1,
+   "q": "Which fopen() mode opens an existing text file for both reading and writing without truncating it?",
+   "opts": [
+    "\"w+\"",
+    "\"r+\"",
+    "\"a\"",
+    "\"w\""
+   ],
+   "ans": "B",
+   "model": "\"r+\" opens an existing file for reading and writing; \"w+\" truncates; \"a\" appends only."
+  },
+  {
+   "u": 3,
+   "t": "counting lines in a text file",
+   "type": "programming",
+   "co": [
+    "CO5"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 6,
+   "q": "Write a C program that counts the number of lines in a text file whose name is given by the user, handling the case where the file cannot be opened.",
+   "lang": "C",
+   "model": "FILE *fp = fopen(name, \"r\");\nif (!fp) { perror(\"open\"); return 1; }\nint c, lines = 0;\nwhile ((c = getc(fp)) != EOF)\n    if (c == '\\n') lines++;\nfclose(fp);\nprintf(\"%d\\n\", lines);"
+  },
+  {
+   "u": 3,
+   "t": "Random file accessing methods",
+   "type": "short_answer",
+   "co": [
+    "CO5"
+   ],
+   "bloom": "understand",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Explain the roles of fseek(), ftell() and rewind() in random file access, with the meaning of SEEK_SET, SEEK_CUR and SEEK_END.",
+   "model": "fseek(fp, offset, origin) moves the file position relative to SEEK_SET (start), SEEK_CUR (current) or SEEK_END (end); ftell(fp) returns the current position; rewind(fp) returns to the start and clears the error indicator."
+  },
+  {
+   "u": 3,
+   "t": "Reading and writing in a binary file",
+   "type": "true_false",
+   "co": [
+    "CO5"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 1,
+   "q": "True or False: fwrite() writes the in-memory bytes of a structure to a binary file, so the file can be read back with fread() into the same structure type.",
+   "ans": "TRUE",
+   "model": "True. fwrite/fread copy raw bytes, so the same structure layout reads back correctly on the same platform."
+  },
+  {
+   "u": 4,
+   "t": "Python features",
+   "type": "short_answer",
+   "co": [
+    "CO6"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 3,
+   "q": "State three features of Python that make it suitable for rapid problem solving, and contrast one of them with C.",
+   "model": "Interpreted, dynamically typed, rich standard library, readable indentation-based syntax. Example: Python variables need no type declarations, whereas C requires declaring types before use."
+  },
+  {
+   "u": 4,
+   "t": "Lines and indentation",
+   "type": "fill_blank",
+   "co": [
+    "CO6"
+   ],
+   "bloom": "remember",
+   "diff": "easy",
+   "marks": 1,
+   "q": "In Python, a block of statements is defined by its ___, not by braces, and a single-line comment starts with the ___ character.",
+   "answers": [
+    "indentation",
+    "#"
+   ],
+   "model": "Blocks are defined by indentation; comments start with #."
+  },
+  {
+   "u": 4,
+   "t": "Bitwise Operators",
+   "type": "numerical",
+   "co": [
+    "CO6"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 2,
+   "q": "What is the value of the Python expression (12 & 10) | (5 << 1) ?",
+   "val": 10,
+   "tol": 0,
+   "model": "12 & 10 = 1100 & 1010 = 1000 = 8; 5 << 1 = 10 = 1010; 8 | 10 = 1010 = 10."
+  },
+  {
+   "u": 4,
+   "t": "Standard Data Types",
+   "type": "mcq",
+   "co": [
+    "CO6"
+   ],
+   "bloom": "understand",
+   "diff": "medium",
+   "marks": 2,
+   "q": "What is the result of the Python expression 7 // 2 + 7 % 2 * 2.0 ?",
+   "opts": [
+    "5.0",
+    "5",
+    "4.5",
+    "3.5"
+   ],
+   "ans": "A",
+   "model": "7 // 2 = 3, 7 % 2 * 2.0 = 2.0, so 3 + 2.0 = 5.0 (a float)."
+  },
+  {
+   "u": 5,
+   "t": "range()",
+   "type": "numerical",
+   "co": [
+    "CO6"
+   ],
+   "bloom": "apply",
+   "diff": "easy",
+   "marks": 2,
+   "q": "What is printed by the Python statement print(sum(range(3, 20, 4)))?",
+   "val": 55,
+   "tol": 0,
+   "model": "range(3, 20, 4) yields 3, 7, 11, 15, 19; their sum is 55."
+  },
+  {
+   "u": 5,
+   "t": "Handling functions in Python",
+   "type": "programming",
+   "co": [
+    "CO6",
+    "CO2"
+   ],
+   "bloom": "create",
+   "diff": "medium",
+   "marks": 6,
+   "q": "Write a Python function is_prime(n) and use it to print all prime numbers between 1 and 100. Explain why checking divisors up to the square root of n is sufficient.",
+   "lang": "Python",
+   "model": "def is_prime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n\nprint([n for n in range(1, 101) if is_prime(n)])\n# A composite n has a factor no larger than sqrt(n)."
+  },
+  {
+   "u": 5,
+   "t": "copying one file to another",
+   "type": "programming",
+   "co": [
+    "CO5",
+    "CO6"
+   ],
+   "bloom": "apply",
+   "diff": "easy",
+   "marks": 4,
+   "q": "Write a Python program that copies the contents of source.txt to dest.txt line by line using with statements.",
+   "lang": "Python",
+   "model": "with open('source.txt') as src, open('dest.txt', 'w') as dst:\n    for line in src:\n        dst.write(line)"
+  },
+  {
+   "u": 5,
+   "t": "Control flow",
+   "type": "case_study",
+   "co": [
+    "CO6",
+    "CO2"
+   ],
+   "bloom": "evaluate",
+   "diff": "hard",
+   "marks": 10,
+   "q": "For the case, propose a Python solution using if-elif-else and loops, and evaluate whether a dictionary of slabs would be a better design than a long if-elif chain.",
+   "case": "An electricity board charges Rs 3 per unit for the first 100 units, Rs 5 per unit for the next 100 units and Rs 8 per unit above 200 units. A clerk enters the units consumed by each of several consumers until a negative value is entered and needs the bill for each.",
+   "model": "Loop reading units until negative; compute bill with if-elif-else on the slabs (e.g. 250 units = 300 + 500 + 400 = 1200). A table of (limit, rate) slabs iterated in a loop is easier to change than hard-coded branches, at the cost of slightly more abstract code; for frequently revised tariffs the table is better."
+  }
+ ]
+}

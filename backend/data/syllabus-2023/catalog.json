@@ -1,0 +1,3534 @@
+{
+ "source": {
+  "file": "Syllabus-2023-New.pdf",
+  "title": "Graphic Era (Deemed to be University), Dehradun — Department of Computer Science and Engineering syllabus (2023)",
+  "pages": 316,
+  "sha256": "df70a961856eef533a00bac09c1eeb4533474e382d5e0a80692a21f61ed6ec07"
+ },
+ "extraction": "backend/src/syllabus-parse.js over the PDF text in content-stream order; COs and unit text verbatim (whitespace normalised); topics split at \";\", sentence ends, \"Heading:\" and comma lists",
+ "selection_note": "Exactly 14 theory subjects. The source has one theory course each in Semesters I and II, so those contribute one each; Semesters III and IV contribute three, V-VII two each. Semester VIII is excluded only to satisfy the 14-subject limit.",
+ "subjects": [
+  {
+   "code": "TCS 101",
+   "title": "Fundamental of computer and Introduction to Programming",
+   "semester": 1,
+   "department": "Computer Science and Engineering",
+   "category": "DC",
+   "pages": [
+    1,
+    3
+   ],
+   "course_outcomes": [
+    {
+     "code": "CO1",
+     "text": "Learn the concepts of IT and understand the fundamentals of basic building blocks of computer science."
+    },
+    {
+     "code": "CO2",
+     "text": "Understand basic data types and syntax of C programming."
+    },
+    {
+     "code": "CO3",
+     "text": "Propose solution to problem by using tools like algorithm and flowcharts."
+    },
+    {
+     "code": "CO4",
+     "text": "Analyze and select the best possible solution for decision- based problems using decision making skills and develop the aptitude to solve iterative problems using different types of looping statements."
+    },
+    {
+     "code": "CO5",
+     "text": "Implement complex problems as a collection of sub problems by applying modularization in applications using functions."
+    },
+    {
+     "code": "CO6",
+     "text": "Apply and implement the concept arrays for providing solution to homogenous collection of data types."
+    }
+   ],
+   "units": [
+    {
+     "number": 1,
+     "hours": 8,
+     "text": "Generation of computers, Computer system memory hierarchy, Input/Output, RAM/ROM, Software & Hardware, Understand bit, byte, KB, MB, GB and their relations to each other, Operating System overview, Computer Networks Overview Algorithms and Flow Charts – Examples of Flow charts for loops and conditional statements",
+     "topics": [
+      {
+       "title": "Generation of computers",
+       "subtopics": []
+      },
+      {
+       "title": "Computer system memory hierarchy",
+       "subtopics": []
+      },
+      {
+       "title": "Input/Output",
+       "subtopics": []
+      },
+      {
+       "title": "RAM/ROM",
+       "subtopics": []
+      },
+      {
+       "title": "Software & Hardware",
+       "subtopics": []
+      },
+      {
+       "title": "Understand bit",
+       "subtopics": []
+      },
+      {
+       "title": "byte",
+       "subtopics": []
+      },
+      {
+       "title": "KB",
+       "subtopics": []
+      },
+      {
+       "title": "MB",
+       "subtopics": []
+      },
+      {
+       "title": "GB and their relations to each other",
+       "subtopics": []
+      },
+      {
+       "title": "Operating System overview",
+       "subtopics": []
+      },
+      {
+       "title": "Computer Networks Overview Algorithms and Flow Charts – Examples of Flow charts for loops and conditional statements",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "hours": 10,
+     "text": "First C program - Hello world, How to open a command prompt on Windows or Linux. How to read and print on screen - printf(),scanf(),getchar(), putchar() Variables and Data types - Variables, Identifiers, data types and sizes, type conversions, difference between declaration and definition of a variable, Constants Life of a C program (Preprocessing, Compilation, Assembly, Linking, Loading, Execution), Compiling from the command line, Macros, Operators – equality and assignment, Compound assignment operators, Increment and decrement operators, Performance comparison between pre and post increment/decrement operators, bitwise operators, Logical Operators, comma operator, precedence and associativity.",
+     "topics": [
+      {
+       "title": "First C program",
+       "subtopics": [
+        "Hello world",
+        "How to open a command prompt on Windows or Linux"
+       ]
+      },
+      {
+       "title": "How to read and print on screen",
+       "subtopics": [
+        "printf()",
+        "scanf()",
+        "getchar()",
+        "putchar() Variables and Data types - Variables",
+        "Identifiers",
+        "data types and sizes",
+        "type conversions",
+        "difference between declaration and definition of a variable",
+        "Constants Life of a C program (Preprocessing, Compilation, Assembly, Linking, Loading, Execution)",
+        "Compiling from the command line",
+        "Macros",
+        "Operators – equality and assignment",
+        "Compound assignment operators",
+        "Increment and decrement operators",
+        "Performance comparison between pre and post increment/decrement operators",
+        "bitwise operators",
+        "Logical Operators",
+        "comma operator",
+        "precedence and associativity"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "hours": 8,
+     "text": "Conditional statements: if statement, if-else statement, ternary statement or ternary operator, nested if-else statement, switch statement, Difference between performance of if else and switch, Advantages of if else and switch over each other Loops: ‘for’ loops, ‘while’ loops, ‘do while’ loops, entry control and exit control, break and continue, nested loops",
+     "topics": [
+      {
+       "title": "Conditional statements",
+       "subtopics": [
+        "if statement",
+        "if-else statement",
+        "ternary statement or ternary operator",
+        "nested if-else statement",
+        "switch statement",
+        "Difference between performance of if else and switch",
+        "Advantages of if else and switch over each other Loops: ‘for’ loops",
+        "‘while’ loops",
+        "‘do while’ loops",
+        "entry control and exit control",
+        "break and continue",
+        "nested loops"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "hours": 7,
+     "text": "Functions: Function prototype, function return type, signature of a function, function arguments, call by value, Function call stack, Recursion v/s Iteration, passing arrays to functions, Storage classes: Automatic, Static, Register, External, Static and Dynamic linking implementation, C program memory (show different areas of C program memory and where different type of variables are stored), scope rules.",
+     "topics": [
+      {
+       "title": "Functions",
+       "subtopics": [
+        "Function prototype",
+        "function return type",
+        "signature of a function",
+        "function arguments",
+        "call by value",
+        "Function call stack",
+        "Recursion v/s Iteration",
+        "passing arrays to functions"
+       ]
+      },
+      {
+       "title": "Storage classes",
+       "subtopics": [
+        "Automatic",
+        "Static",
+        "Register",
+        "External",
+        "Static and Dynamic linking implementation",
+        "C program memory (show different areas of C program memory and where different type of variables are stored)",
+        "scope rules"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "hours": 10,
+     "text": "Arrays: Single-dimensional arrays, initializing arrays, computing address of an element in array, character arrays, segmentation fault, bound checking, Searching and Sorting.",
+     "topics": [
+      {
+       "title": "Arrays",
+       "subtopics": [
+        "Single-dimensional arrays",
+        "initializing arrays",
+        "computing address of an element in array",
+        "character arrays",
+        "segmentation fault",
+        "bound checking",
+        "Searching and Sorting"
+       ]
+      }
+     ]
+    }
+   ],
+   "total_hours": 43,
+   "warnings": []
+  },
+  {
+   "code": "TCS 201",
+   "title": "Programming for Problem Solving",
+   "semester": 2,
+   "department": "Computer Science and Engineering",
+   "category": "DC",
+   "pages": [
+    4,
+    6
+   ],
+   "course_outcomes": [
+    {
+     "code": "CO1",
+     "text": "Learn and apply concepts of strings and multi-dimensional array for providing solutions to homogenous collection of data types"
+    },
+    {
+     "code": "CO2",
+     "text": "Propose solution to problem by using tools like algorithm and flowcharts."
+    },
+    {
+     "code": "CO3",
+     "text": "Apply the concept of pointers to optimize memory management by overcoming the limitations of arrays."
+    },
+    {
+     "code": "CO4",
+     "text": "Process and analyze problems based on heterogeneous collection of data using structures."
+    },
+    {
+     "code": "CO5",
+     "text": "Apply concepts of file handling to implement data storage and retrieval tasks."
+    },
+    {
+     "code": "CO6",
+     "text": "Implement the basic real life problems using python."
+    }
+   ],
+   "units": [
+    {
+     "number": 1,
+     "hours": 6,
+     "text": "Multi-Dimensional Arrays- Initializing arrays , row major and column major form of an array, character strings and arrays, Strings – Declaration of strings, Initialization of strings using arrays and pointers, Standard library functions of string.",
+     "topics": [
+      {
+       "title": "Multi-Dimensional Arrays",
+       "subtopics": [
+        "Initializing arrays",
+        "row major and column major form of an array",
+        "character strings and arrays",
+        "Strings – Declaration of strings",
+        "Initialization of strings using arrays and pointers",
+        "Standard library functions of string"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "hours": 10,
+     "text": "Pointers –Basic of pointers and addresses, Pointers and arrays, Pointer arithmetic, passing pointers to functions, call by reference. Accessing string through pointers. Dynamic memory management in C - malloc(), calloc(), realloc(), free(), memory leak,Dangling, Void, Null and Wild pointers Structures - Structures, array of structures, structure within structure, union, typedef, self-referential structure, pointer to structure",
+     "topics": [
+      {
+       "title": "Pointers –Basic of pointers and addresses",
+       "subtopics": []
+      },
+      {
+       "title": "Pointers and arrays",
+       "subtopics": []
+      },
+      {
+       "title": "Pointer arithmetic",
+       "subtopics": []
+      },
+      {
+       "title": "passing pointers to functions",
+       "subtopics": []
+      },
+      {
+       "title": "call by reference",
+       "subtopics": []
+      },
+      {
+       "title": "Accessing string through pointers",
+       "subtopics": []
+      },
+      {
+       "title": "Dynamic memory management in C",
+       "subtopics": [
+        "malloc()",
+        "calloc()",
+        "realloc()",
+        "free()",
+        "memory leak",
+        "Dangling",
+        "Void",
+        "Null and Wild pointers Structures - Structures",
+        "array of structures",
+        "structure within structure",
+        "union",
+        "typedef",
+        "self-referential structure",
+        "pointer to structure"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "hours": 8,
+     "text": "File Handling - Opening or creating a file, closing a file, File modes, Reading and writing a text file using getc(), putc(), fprintf() ,fscanf(),fgets(), fputs(), Reading and writing in a binary file, counting lines in a text file, Search in a text file, Random file accessing methods- feof(), fseek(), ftell() and rewind() functions.",
+     "topics": [
+      {
+       "title": "File Handling",
+       "subtopics": [
+        "Opening or creating a file",
+        "closing a file",
+        "File modes",
+        "Reading and writing a text file using getc()",
+        "putc()",
+        "fprintf()",
+        "fscanf()",
+        "fgets()",
+        "fputs()",
+        "Reading and writing in a binary file",
+        "counting lines in a text file",
+        "Search in a text file",
+        "Random file accessing methods- feof()",
+        "fseek()",
+        "ftell() and rewind() functions"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "hours": 10,
+     "text": "Introduction to Python- History of Python, Need of Python Programming, Python features, First Python Program, Running python Scripts, Variables, Reserved words, Lines and indentation, Quotations, Comments, Input output. Data Types, Operators and Expressions: Standard Data Types – Numbers, strings, Boolean, Operators – Arithmetic Operators, comparison Operators, assignment Operators, logical Operators, Bitwise Operators.",
+     "topics": [
+      {
+       "title": "Introduction to Python",
+       "subtopics": [
+        "History of Python",
+        "Need of Python Programming",
+        "Python features",
+        "First Python Program",
+        "Running python Scripts",
+        "Variables",
+        "Reserved words",
+        "Lines and indentation",
+        "Quotations",
+        "Comments",
+        "Input output"
+       ]
+      },
+      {
+       "title": "Standard Data Types",
+       "subtopics": [
+        "Numbers",
+        "strings",
+        "Boolean",
+        "Operators – Arithmetic Operators",
+        "comparison Operators",
+        "assignment Operators",
+        "logical Operators",
+        "Bitwise Operators"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "hours": 10,
+     "text": "Control flow – if, if-elif-else, for, while, break, continue, pass, range(), nested loops. Functions – Handling functions in Python File Handling – Reading text file, writing text file, copying one file to another",
+     "topics": [
+      {
+       "title": "Control flow",
+       "subtopics": [
+        "if",
+        "if-elif-else",
+        "for",
+        "while",
+        "break",
+        "continue",
+        "pass",
+        "range()",
+        "nested loops"
+       ]
+      },
+      {
+       "title": "Handling functions in Python File Handling",
+       "subtopics": [
+        "Reading text file",
+        "writing text file",
+        "copying one file to another"
+       ]
+      }
+     ]
+    }
+   ],
+   "total_hours": 44,
+   "warnings": []
+  },
+  {
+   "code": "TCS 302",
+   "title": "Data structures with C",
+   "semester": 3,
+   "department": "Computer Science and Engineering",
+   "category": "DC",
+   "pages": [
+    9,
+    11
+   ],
+   "course_outcomes": [
+    {
+     "code": "CO1",
+     "text": "Describe the concept of Data Structures and assess how the choice of data structures impacts the performance of programs"
+    },
+    {
+     "code": "CO2",
+     "text": "Compare and contrast merits and demerits of various data structures in terms of time and memory complexity."
+    },
+    {
+     "code": "CO3",
+     "text": "Identify and propose appropriate data structure for providing the solution to the real world problems."
+    },
+    {
+     "code": "CO4",
+     "text": "Implement operations like searching, insertion, deletion, traversing mechanism etc. on various data structures"
+    },
+    {
+     "code": "CO5",
+     "text": "Be familiar with advanced data structures such as balanced search trees, hash tables, AVL trees, priority queues, ADT etc."
+    },
+    {
+     "code": "CO6",
+     "text": "To augment merits of particular data structures on other data structure to develop innovation in subject of study."
+    }
+   ],
+   "units": [
+    {
+     "number": 1,
+     "hours": 10,
+     "text": "Introduction: Basic Terminology, Pointer and dynamic memory allocation, Elementary Data Organization, Data Structure operations, Algorithm Complexity and Time-Space trade-off Arrays: Array Definition, Representation and Analysis, Single and Multidimensional Arrays, address calculation, application of arrays, Array as Parameters, Ordered List, Sparse Matrices. Stacks:Array. Representation and Implementation of stack, Operations on Stacks: Push & Pop, Array Representation of Stack, Linked Representation of Stack, Operations Associated with Stacks, Application of stack: Conversion of Infix to Prefix and Postfix Expressions, Evaluation of postfix expression using stack. Recursion: Recursive definition and processes, recursion in C, example of recursion, Tower of Hanoi Problem, tail recursion.",
+     "topics": [
+      {
+       "title": "Introduction",
+       "subtopics": [
+        "Basic Terminology",
+        "Pointer and dynamic memory allocation",
+        "Elementary Data Organization",
+        "Data Structure operations"
+       ]
+      },
+      {
+       "title": "Algorithm Complexity and Time-Space trade-off Arrays",
+       "subtopics": [
+        "Array Definition",
+        "Representation and Analysis",
+        "Single and Multidimensional Arrays",
+        "address calculation",
+        "application of arrays",
+        "Array as Parameters",
+        "Ordered List",
+        "Sparse Matrices"
+       ]
+      },
+      {
+       "title": "Stacks",
+       "subtopics": [
+        "Array"
+       ]
+      },
+      {
+       "title": "Representation and Implementation of stack, Operations on Stacks",
+       "subtopics": [
+        "Push & Pop",
+        "Array Representation of Stack",
+        "Linked Representation of Stack",
+        "Operations Associated with Stacks"
+       ]
+      },
+      {
+       "title": "Application of stack",
+       "subtopics": [
+        "Conversion of Infix to Prefix and Postfix Expressions",
+        "Evaluation of postfix expression using stack"
+       ]
+      },
+      {
+       "title": "Recursion",
+       "subtopics": [
+        "Recursive definition and processes",
+        "recursion in C",
+        "example of recursion",
+        "Tower of Hanoi Problem",
+        "tail recursion"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "hours": 10,
+     "text": "Queues: Array and linked representation and implementation of queues, Operations on Queue: Create, Add, Delete, Full and Empty. Circular queue, Dequeue, and Priority Queue. Linked list: Representation and Implementation of Singly Linked Lists, Two- way Header List, Traversing and Searching of Linked List, Overflow and Underflow, Insertion and deletion to/from Linked Lists, Insertion and deletion Algorithms, Doubly linked list, Linked List in Array, Polynomial representation and addition, Generalized linked list.",
+     "topics": [
+      {
+       "title": "Queues",
+       "subtopics": [
+        "Array and linked representation and implementation of queues"
+       ]
+      },
+      {
+       "title": "Operations on Queue",
+       "subtopics": [
+        "Create",
+        "Add",
+        "Delete",
+        "Full and Empty"
+       ]
+      },
+      {
+       "title": "Circular queue",
+       "subtopics": []
+      },
+      {
+       "title": "Dequeue",
+       "subtopics": []
+      },
+      {
+       "title": "and Priority Queue",
+       "subtopics": []
+      },
+      {
+       "title": "Linked list",
+       "subtopics": [
+        "Representation and Implementation of Singly Linked Lists",
+        "Two- way Header List",
+        "Traversing and Searching of Linked List",
+        "Overflow and Underflow",
+        "Insertion and deletion to/from Linked Lists",
+        "Insertion and deletion Algorithms",
+        "Doubly linked list",
+        "Linked List in Array",
+        "Polynomial representation and addition",
+        "Generalized linked list"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "hours": 9,
+     "text": "Trees: Basic terminology, Binary Trees, Binary tree representation, algebraic Expressions, Complete Binary Tree. Extended Binary Trees, Array and Linked Representation of Binary trees, Traversing Binary trees, Threaded Binary trees. Traversing Threaded Binary trees, Huffman algorithm & Huffman tree. Searching and Hashing: Sequential search, binary search, comparison and analysis, Hash Table, Hash Functions, Collision Resolution Strategies, Hash Table Implementation",
+     "topics": [
+      {
+       "title": "Trees",
+       "subtopics": [
+        "Basic terminology",
+        "Binary Trees",
+        "Binary tree representation",
+        "algebraic Expressions",
+        "Complete Binary Tree"
+       ]
+      },
+      {
+       "title": "Extended Binary Trees",
+       "subtopics": []
+      },
+      {
+       "title": "Array and Linked Representation of Binary trees",
+       "subtopics": []
+      },
+      {
+       "title": "Traversing Binary trees",
+       "subtopics": []
+      },
+      {
+       "title": "Threaded Binary trees",
+       "subtopics": []
+      },
+      {
+       "title": "Traversing Threaded Binary trees",
+       "subtopics": []
+      },
+      {
+       "title": "Huffman algorithm & Huffman tree",
+       "subtopics": []
+      },
+      {
+       "title": "Searching and Hashing",
+       "subtopics": [
+        "Sequential search",
+        "binary search",
+        "comparison and analysis",
+        "Hash Table",
+        "Hash Functions",
+        "Collision Resolution Strategies",
+        "Hash Table Implementation"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "hours": 9,
+     "text": "Sorting: Insertion Sort, Bubble Sorting, Quick Sort, Two Way Merge Sort, Heap Sort, Sorting on Different Keys, Practical consideration for Internal Sorting. Binary Search Trees: Binary Search Tree (BST), Insertion and Deletion in BST, Complexity of Search Algorithm, Path Length, AVL Trees",
+     "topics": [
+      {
+       "title": "Sorting",
+       "subtopics": [
+        "Insertion Sort",
+        "Bubble Sorting",
+        "Quick Sort",
+        "Two Way Merge Sort",
+        "Heap Sort",
+        "Sorting on Different Keys",
+        "Practical consideration for Internal Sorting"
+       ]
+      },
+      {
+       "title": "Binary Search Trees",
+       "subtopics": [
+        "Binary Search Tree (BST)",
+        "Insertion and Deletion in BST",
+        "Complexity of Search Algorithm",
+        "Path Length",
+        "AVL Trees"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "hours": 8,
+     "text": "File Structures: Physical Storage Media File Organization, Organization of records into Blocks, Sequential Files, Indexing and Hashing, Primary indices, Secondary indices, B+ Tree index Files, B Tree index Files, Indexing and Hashing Comparisons, Graph, Traversal(DFS,BFS) ,Minimum spanning tree",
+     "topics": [
+      {
+       "title": "File Structures",
+       "subtopics": [
+        "Physical Storage Media File Organization",
+        "Organization of records into Blocks",
+        "Sequential Files",
+        "Indexing and Hashing",
+        "Primary indices",
+        "Secondary indices",
+        "B+ Tree index Files",
+        "B Tree index Files",
+        "Indexing and Hashing Comparisons",
+        "Graph",
+        "Traversal(DFS,BFS)",
+        "Minimum spanning tree"
+       ]
+      }
+     ]
+    }
+   ],
+   "total_hours": 46,
+   "warnings": []
+  },
+  {
+   "code": "TCS 308",
+   "title": "Logic Design & Computer Organization",
+   "semester": 3,
+   "department": "Computer Science and Engineering",
+   "category": "DC",
+   "pages": [
+    7,
+    8
+   ],
+   "course_outcomes": [
+    {
+     "code": "CO1",
+     "text": "Understand the process of minimizing Boolean function and obtaining the combinational logic circuits from Boolean functions."
+    },
+    {
+     "code": "CO2",
+     "text": "Analyze the basic storage elements in digital circuits and develop sequential circuits by applying them."
+    },
+    {
+     "code": "CO3",
+     "text": "Evaluate the design of different types of register, counter, and programmable logic devices."
+    },
+    {
+     "code": "CO4",
+     "text": "Apply the concept of digital logic circuits in computer organization & architecture and evaluate the computer performance."
+    },
+    {
+     "code": "CO5",
+     "text": "Create the arithmetic logic used in computer and describe the machine instruction execution."
+    },
+    {
+     "code": "CO6",
+     "text": "Understand the memory hierarchy of computer and how different I/O devices interact with the processing unit."
+    }
+   ],
+   "units": [
+    {
+     "number": 1,
+     "hours": 10,
+     "text": "Simplification of Boolean Function using K-map method (upto 5 variables) and Quine-Mc Clusky method. Nand and Nor Implementation. Combinational Logic: Introduction, Analysis & Design Procedure, Binary Adder & Subtractor, Decimal Adder, Binary Multiplier, Magnitude Comparator, Decoders, Encoders, Multiplexers, Demultiplexers, code conversion. Introduction to HDL description of combinational logic circuits.",
+     "topics": [
+      {
+       "title": "Simplification of Boolean Function using K-map method (upto 5 variables) and Quine-Mc Clusky method",
+       "subtopics": []
+      },
+      {
+       "title": "Nand and Nor Implementation",
+       "subtopics": []
+      },
+      {
+       "title": "Combinational Logic",
+       "subtopics": [
+        "Introduction",
+        "Analysis & Design Procedure",
+        "Binary Adder & Subtractor",
+        "Decimal Adder",
+        "Binary Multiplier",
+        "Magnitude Comparator",
+        "Decoders",
+        "Encoders",
+        "Multiplexers",
+        "Demultiplexers",
+        "code conversion"
+       ]
+      },
+      {
+       "title": "Introduction to HDL description of combinational logic circuits",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "hours": 8,
+     "text": "Sequential Logic: Introduction, Types of Sequential circuits, Basic storage elements (Latch and Flip-flops), Characteristic equations & tables, excitation table, Flip-flop conversion, Analysis and design of synchronous sequential circuits.",
+     "topics": [
+      {
+       "title": "Sequential Logic",
+       "subtopics": [
+        "Introduction",
+        "Types of Sequential circuits",
+        "Basic storage elements (Latch and Flip-flops)",
+        "Characteristic equations & tables",
+        "excitation table",
+        "Flip-flop conversion",
+        "Analysis and design of synchronous sequential circuits"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "hours": 10,
+     "text": "Registers, Shift register, Universal shift register, Counters (Ripple & Synchronous): Introduction & Design, Introduction to memory, types of memory, PLD: PAL, PLA, ROM Introduction to Computer Organization & Architecture, Von Neumann and Harvard Architecture, RISC and CISC machines, Evolution of Intel x86 and ARM architecture, Basic measures of computer performance, Amdahl’s Law, Little’s Law.",
+     "topics": [
+      {
+       "title": "Registers",
+       "subtopics": []
+      },
+      {
+       "title": "Shift register",
+       "subtopics": []
+      },
+      {
+       "title": "Universal shift register",
+       "subtopics": []
+      },
+      {
+       "title": "Counters (Ripple & Synchronous): Introduction & Design",
+       "subtopics": []
+      },
+      {
+       "title": "Introduction to memory",
+       "subtopics": []
+      },
+      {
+       "title": "types of memory",
+       "subtopics": []
+      },
+      {
+       "title": "PLD: PAL",
+       "subtopics": []
+      },
+      {
+       "title": "PLA",
+       "subtopics": []
+      },
+      {
+       "title": "ROM Introduction to Computer Organization & Architecture",
+       "subtopics": []
+      },
+      {
+       "title": "Von Neumann and Harvard Architecture",
+       "subtopics": []
+      },
+      {
+       "title": "RISC and CISC machines",
+       "subtopics": []
+      },
+      {
+       "title": "Evolution of Intel x86 and ARM architecture",
+       "subtopics": []
+      },
+      {
+       "title": "Basic measures of computer performance",
+       "subtopics": []
+      },
+      {
+       "title": "Amdahl’s Law",
+       "subtopics": []
+      },
+      {
+       "title": "Little’s Law",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "hours": 10,
+     "text": "Computer Arithmetic (Integer and Floating Point): Representation, Addition, Subtraction, Multiplication and Division. Machine Instruction characteristics, Addressing Modes, Processor structure and operation, Instruction Cycle, Instruction Pipelining: Strategy, performance, Hazards. Control unit operation and microprogrammed control.",
+     "topics": [
+      {
+       "title": "Computer Arithmetic (Integer and Floating Point)",
+       "subtopics": [
+        "Representation",
+        "Addition",
+        "Subtraction",
+        "Multiplication and Division"
+       ]
+      },
+      {
+       "title": "Machine Instruction characteristics",
+       "subtopics": []
+      },
+      {
+       "title": "Addressing Modes",
+       "subtopics": []
+      },
+      {
+       "title": "Processor structure and operation",
+       "subtopics": []
+      },
+      {
+       "title": "Instruction Cycle",
+       "subtopics": []
+      },
+      {
+       "title": "Instruction Pipelining: Strategy",
+       "subtopics": []
+      },
+      {
+       "title": "performance",
+       "subtopics": []
+      },
+      {
+       "title": "Hazards",
+       "subtopics": []
+      },
+      {
+       "title": "Control unit operation and microprogrammed control",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "hours": 10,
+     "text": "Memory hierarchy: Locality and performance, Cache memory: Principles and elements of design, Internal memory, External memory, I/O interface: External devices, I/O modules, Programmed I/O, Interrupt driven I/O, Direct Memory Access. Introduction to alternative architectures.",
+     "topics": [
+      {
+       "title": "Memory hierarchy",
+       "subtopics": [
+        "Locality and performance"
+       ]
+      },
+      {
+       "title": "Cache memory",
+       "subtopics": [
+        "Principles and elements of design",
+        "Internal memory",
+        "External memory"
+       ]
+      },
+      {
+       "title": "I/O interface",
+       "subtopics": [
+        "External devices",
+        "I/O modules",
+        "Programmed I/O",
+        "Interrupt driven I/O",
+        "Direct Memory Access"
+       ]
+      },
+      {
+       "title": "Introduction to alternative architectures",
+       "subtopics": []
+      }
+     ]
+    }
+   ],
+   "total_hours": 48,
+   "warnings": []
+  },
+  {
+   "code": "TMA 316",
+   "title": "Discrete Structures and Combinatorics",
+   "semester": 3,
+   "department": "Computer Science and Engineering",
+   "category": "DC",
+   "pages": [
+    14,
+    16
+   ],
+   "course_outcomes": [
+    {
+     "code": "CO1",
+     "text": "Be able to specify and manipulate basic mathematical objects such as sets, functions, and relations . Demonstrate an understanding of partial order relations and Lattices."
+    },
+    {
+     "code": "CO2",
+     "text": "Understand the basics of discrete probability and number theory, and be able to apply the methods from these subjects in problem solving."
+    },
+    {
+     "code": "CO3",
+     "text": "Produce convincing arguments, conceive and/or analyze basic mathematical proofs and discriminate between valid and unreliable arguments."
+    },
+    {
+     "code": "CO4",
+     "text": "Discriminate, identify and prove the properties of groups and subgroups"
+    },
+    {
+     "code": "CO5",
+     "text": "Be able to apply basic counting techniques to solve combinatorial problems"
+    },
+    {
+     "code": "CO6",
+     "text": "Demonstrate different traversal methods for trees and graphs. Model problems in Computer Science using graphs and trees."
+    }
+   ],
+   "units": [
+    {
+     "number": 1,
+     "hours": 11,
+     "text": "Relations and Functions: Review of Sets, Relations - properties, equivalence relation, matrix and Graph representation, Closure operations Functions, Types of functions, Invertability, Composition of functions and Inverse functions,Partially ordered Sets and Lattices. Lattice Properties, Lattices as Boolean Algebra",
+     "topics": [
+      {
+       "title": "Relations and Functions",
+       "subtopics": [
+        "Review of Sets",
+        "Relations - properties",
+        "equivalence relation",
+        "matrix and Graph representation",
+        "Closure operations Functions",
+        "Types of functions",
+        "Invertability",
+        "Composition of functions and Inverse functions",
+        "Partially ordered Sets and Lattices"
+       ]
+      },
+      {
+       "title": "Lattice Properties",
+       "subtopics": []
+      },
+      {
+       "title": "Lattices as Boolean Algebra",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "hours": 9,
+     "text": "Probability Theory Basics of Probability, Conditional Probability; Random Variables, probability mass and density function, commutative distribution function, expected values, mean, variance and standard deviation, Distributions: Binomial. Poisson, normal, uniform,, exponential,",
+     "topics": [
+      {
+       "title": "Probability Theory Basics of Probability",
+       "subtopics": []
+      },
+      {
+       "title": "Conditional Probability",
+       "subtopics": []
+      },
+      {
+       "title": "Random Variables",
+       "subtopics": []
+      },
+      {
+       "title": "probability mass and density function",
+       "subtopics": []
+      },
+      {
+       "title": "commutative distribution function",
+       "subtopics": []
+      },
+      {
+       "title": "expected values",
+       "subtopics": []
+      },
+      {
+       "title": "mean",
+       "subtopics": []
+      },
+      {
+       "title": "variance and standard deviation",
+       "subtopics": []
+      },
+      {
+       "title": "Distributions: Binomial",
+       "subtopics": []
+      },
+      {
+       "title": "Poisson",
+       "subtopics": []
+      },
+      {
+       "title": "normal",
+       "subtopics": []
+      },
+      {
+       "title": "uniform",
+       "subtopics": []
+      },
+      {
+       "title": "exponential",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "hours": 9,
+     "text": "Fundamentals of Logic: Basic Connectives and Truth Tables, Logical Equivalence – The Laws of Logic, Logical Implication – Rules of Inference. The Use of Quantifiers, Methods of Proof: Different methods of proof – Direct Proof, Indirect Proof, Counter examples, Principle of Induction.",
+     "topics": [
+      {
+       "title": "Fundamentals of Logic",
+       "subtopics": [
+        "Basic Connectives and Truth Tables",
+        "Logical Equivalence – The Laws of Logic",
+        "Logical Implication – Rules of Inference"
+       ]
+      },
+      {
+       "title": "Different methods of proof",
+       "subtopics": [
+        "Direct Proof",
+        "Indirect Proof",
+        "Counter examples",
+        "Principle of Induction"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "hours": 10,
+     "text": "Groups: Definitions, Examples, and Elementary Properties, Homomorphism, Isomorphism, permutation groups and cyclic Groups, subgroups, cosets, and Lagrange’s Theorem Counting: Set cardinality and counting, Sum and Product Rules, Inclusion Exclusion Principles, Pigeonhole principle, permutations and combinations, Basics of recurrence relations and, generating Functions",
+     "topics": [
+      {
+       "title": "Groups",
+       "subtopics": [
+        "Definitions",
+        "Examples",
+        "and Elementary Properties",
+        "Homomorphism",
+        "Isomorphism",
+        "permutation groups and cyclic Groups",
+        "subgroups",
+        "cosets",
+        "and"
+       ]
+      },
+      {
+       "title": "Lagrange’s Theorem Counting",
+       "subtopics": [
+        "Set cardinality and counting",
+        "Sum and Product Rules",
+        "Inclusion Exclusion Principles",
+        "Pigeonhole principle",
+        "permutations and combinations",
+        "Basics of recurrence relations and",
+        "generating Functions"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "hours": 9,
+     "text": "Graphs and Trees Fundamentals of Graphs Graph types – undirected, directed, weighted; - Representing graphs and graph isomorphism -connectivity-Euler and Hamilton paths, Isomorphism Tree properties, traversal techniques;",
+     "topics": [
+      {
+       "title": "Graphs and Trees Fundamentals of Graphs Graph types",
+       "subtopics": [
+        "undirected",
+        "directed",
+        "weighted"
+       ]
+      },
+      {
+       "title": "Representing graphs and graph isomorphism -connectivity-Euler and Hamilton paths",
+       "subtopics": []
+      },
+      {
+       "title": "Isomorphism Tree properties",
+       "subtopics": []
+      },
+      {
+       "title": "traversal techniques",
+       "subtopics": []
+      }
+     ]
+    }
+   ],
+   "total_hours": 48,
+   "warnings": []
+  },
+  {
+   "code": "TCS 402",
+   "title": "Finite Automata and Formal Languages",
+   "semester": 4,
+   "department": "Computer Science and Engineering",
+   "category": "DC",
+   "pages": [
+    53,
+    54
+   ],
+   "course_outcomes": [
+    {
+     "code": "CO1",
+     "text": "Understand the concept of abstract machines and their power to recognize languages."
+    },
+    {
+     "code": "CO2",
+     "text": "Formulate DFA, RE and FA with output."
+    },
+    {
+     "code": "CO3",
+     "text": "Design CFG and check the language is not CFL."
+    },
+    {
+     "code": "CO4",
+     "text": "Design PDA and convert n-PDA into D-PDA."
+    },
+    {
+     "code": "CO5",
+     "text": "Design and be familiar with Turing machines and computability."
+    },
+    {
+     "code": "CO6",
+     "text": "Formulate finite machines, push down automata and Turing machines for automated functioning of devices."
+    }
+   ],
+   "units": [
+    {
+     "number": 1,
+     "hours": 10,
+     "text": "Introduction; Alphabets, Strings and Languages; Automata and Grammars, Deterministic finite Automata (DFA)-Formal Definition, Simplified notation: State transition graph, Transition table, Language of DFA, Nondeterministic finite Automata (NFA), NFA with epsilon transition, Language of NFA, Equivalence of NFA and DFA, Minimization of Finite Automata, Myhill-Nerode Theorem.",
+     "topics": [
+      {
+       "title": "Introduction",
+       "subtopics": []
+      },
+      {
+       "title": "Alphabets",
+       "subtopics": []
+      },
+      {
+       "title": "Strings and Languages",
+       "subtopics": []
+      },
+      {
+       "title": "Automata and Grammars",
+       "subtopics": []
+      },
+      {
+       "title": "Deterministic finite Automata (DFA)-Formal Definition",
+       "subtopics": []
+      },
+      {
+       "title": "Simplified notation: State transition graph",
+       "subtopics": []
+      },
+      {
+       "title": "Transition table",
+       "subtopics": []
+      },
+      {
+       "title": "Language of DFA",
+       "subtopics": []
+      },
+      {
+       "title": "Nondeterministic finite Automata (NFA)",
+       "subtopics": []
+      },
+      {
+       "title": "NFA with epsilon transition",
+       "subtopics": []
+      },
+      {
+       "title": "Language of NFA",
+       "subtopics": []
+      },
+      {
+       "title": "Equivalence of NFA and DFA",
+       "subtopics": []
+      },
+      {
+       "title": "Minimization of Finite Automata",
+       "subtopics": []
+      },
+      {
+       "title": "Myhill-Nerode Theorem",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "hours": 10,
+     "text": "Regular expression (RE), Definition, Operators of regular expression and their precedence, Algebraic laws for Regular expressions, Regular expression to FA, DFA to Regular expression, Arden Theorem, Non Regular Languages, Pumping Lemma for regular Languages. Application of Pumping Lemma, Closure properties of Regular Languages, Decision properties of Regular Languages, FA with output: Moore and Mealy machine, Equivalence of Moore and Mealy Machine, Applications and Limitation of FA.",
+     "topics": [
+      {
+       "title": "Regular expression (RE)",
+       "subtopics": []
+      },
+      {
+       "title": "Definition",
+       "subtopics": []
+      },
+      {
+       "title": "Operators of regular expression and their precedence",
+       "subtopics": []
+      },
+      {
+       "title": "Algebraic laws for Regular expressions",
+       "subtopics": []
+      },
+      {
+       "title": "Regular expression to FA",
+       "subtopics": []
+      },
+      {
+       "title": "DFA to Regular expression",
+       "subtopics": []
+      },
+      {
+       "title": "Arden Theorem",
+       "subtopics": []
+      },
+      {
+       "title": "Non Regular Languages",
+       "subtopics": []
+      },
+      {
+       "title": "Pumping Lemma for regular Languages",
+       "subtopics": []
+      },
+      {
+       "title": "Application of Pumping Lemma",
+       "subtopics": []
+      },
+      {
+       "title": "Closure properties of Regular Languages",
+       "subtopics": []
+      },
+      {
+       "title": "Decision properties of Regular Languages",
+       "subtopics": []
+      },
+      {
+       "title": "FA with output: Moore and Mealy machine",
+       "subtopics": []
+      },
+      {
+       "title": "Equivalence of Moore and Mealy Machine",
+       "subtopics": []
+      },
+      {
+       "title": "Applications and Limitation of FA",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "hours": 9,
+     "text": "Context free grammar (CFG) and Context Free Languages (CFL): Definition, Examples, Derivation, Derivation trees, Ambiguity in Grammar, Useless symbols, Simplification of CFGs, Normal forms for CFGs: CNF and GNF, Closure proper ties of CFLs, Decision Properties of CFLs, Pumping lemma for CFLs, Applications and Limitation of CFL and CFG.",
+     "topics": [
+      {
+       "title": "Context free grammar (CFG) and Context Free Languages (CFL)",
+       "subtopics": [
+        "Definition",
+        "Examples",
+        "Derivation",
+        "Derivation trees",
+        "Ambiguity in Grammar",
+        "Useless symbols",
+        "Simplification of CFGs"
+       ]
+      },
+      {
+       "title": "Normal forms for CFGs",
+       "subtopics": [
+        "CNF and GNF",
+        "Closure proper ties of CFLs",
+        "Decision Properties of CFLs",
+        "Pumping lemma for CFLs",
+        "Applications and Limitation of CFL and CFG"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "hours": 10,
+     "text": "Push Down Automata (PDA): Description and definition, Instantaneous Description, Language of PDA, Acceptance by Final state, Acceptance by empty stack, Deterministic PDA, Equivalence of PDA and CFG, CFG to PDA and PDA to CFG, Two stack PDA.",
+     "topics": [
+      {
+       "title": "Push Down Automata (PDA)",
+       "subtopics": [
+        "Description and definition",
+        "Instantaneous Description",
+        "Language of PDA",
+        "Acceptance by Final state",
+        "Acceptance by empty stack",
+        "Deterministic PDA",
+        "Equivalence of PDA and CFG",
+        "CFG to PDA and PDA to CFG",
+        "Two stack PDA"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "hours": 8,
+     "text": "Turing machines (TM): Basic model, definition and representation, Instantaneous Description, Language acceptance by TM, Variants of Turing Machine, TM as Computer of Integer functions, Universal TM, Church’s Thesis, Recursive and recursively enumerable languages, Halting problem, Introduction to Undecidability, Undecidable problems about TMs. Post correspondence problem (PCP), Modified PCP, Introduction to recursive function theory.",
+     "topics": [
+      {
+       "title": "Turing machines (TM)",
+       "subtopics": [
+        "Basic model",
+        "definition and representation",
+        "Instantaneous Description",
+        "Language acceptance by TM",
+        "Variants of Turing Machine",
+        "TM as Computer of Integer functions",
+        "Universal TM",
+        "Church’s Thesis",
+        "Recursive and recursively enumerable languages",
+        "Halting problem",
+        "Introduction to Undecidability",
+        "Undecidable problems about TMs"
+       ]
+      },
+      {
+       "title": "Post correspondence problem (PCP)",
+       "subtopics": []
+      },
+      {
+       "title": "Modified PCP",
+       "subtopics": []
+      },
+      {
+       "title": "Introduction to recursive function theory",
+       "subtopics": []
+      }
+     ]
+    }
+   ],
+   "total_hours": 47,
+   "warnings": []
+  },
+  {
+   "code": "TCS 408",
+   "title": "Programming in Java",
+   "semester": 4,
+   "department": "Computer Science and Engineering",
+   "category": "DC",
+   "pages": [
+    51,
+    52
+   ],
+   "course_outcomes": [
+    {
+     "code": "CO1",
+     "text": "Explain the Java programming features and develop programs to demonstrate the same."
+    },
+    {
+     "code": "CO2",
+     "text": "Make use of object-oriented concepts to develop applications"
+    },
+    {
+     "code": "CO3",
+     "text": "Classify exceptions and demonstrate applications for file handling and multithreading."
+    },
+    {
+     "code": "CO4",
+     "text": "Analyze collection framework and develop applications using GUI."
+    },
+    {
+     "code": "CO5",
+     "text": "Compare and utilize collection framework for programming applications."
+    },
+    {
+     "code": "CO6",
+     "text": "Design applications for event handling and accessing databases using Java features."
+    }
+   ],
+   "units": [
+    {
+     "number": 1,
+     "hours": 10,
+     "text": "Introduction to Java: Importance and features of Java, Concepts of Java Virtual machine (JVM) Keywords, Constants, Variables and data types, operators and expressions, Control statements, Conditional statements, loops and iterations, Wrapper classes, Scanner Class: Scanner class methods (next(),nextLine() etc. Concept of class: Class definition, adding variables and methods, creating objects, constructors, defining methods, calling methods, Arrays,String Handling in java( String, StringBuffer classes)",
+     "topics": [
+      {
+       "title": "Introduction to Java",
+       "subtopics": [
+        "Importance and features of Java",
+        "Concepts of Java Virtual machine (JVM) Keywords",
+        "Constants",
+        "Variables and data types",
+        "operators and expressions",
+        "Control statements",
+        "Conditional statements",
+        "loops and iterations",
+        "Wrapper classes"
+       ]
+      },
+      {
+       "title": "Scanner Class",
+       "subtopics": [
+        "Scanner class methods (next(),nextLine() etc"
+       ]
+      },
+      {
+       "title": "Concept of class",
+       "subtopics": [
+        "Class definition",
+        "adding variables and methods",
+        "creating objects",
+        "constructors",
+        "defining methods",
+        "calling methods",
+        "Arrays",
+        "String Handling in java( String, StringBuffer classes)"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "hours": 9,
+     "text": "Object Oriented Programming concepts: Inheritance, super classes, multilevel hierarchy, abstract and final classes, overloading and overriding Packages and interfaces: Packages, Defining Packages, Using Packages, import and static import, Access protection. Interface: Defining Interfaces, abstract methods declarations, implementing interfaces, extended interfaces, interface references.",
+     "topics": [
+      {
+       "title": "Object Oriented Programming concepts",
+       "subtopics": [
+        "Inheritance",
+        "super classes",
+        "multilevel hierarchy",
+        "abstract and final classes",
+        "overloading and overriding"
+       ]
+      },
+      {
+       "title": "Packages and interfaces",
+       "subtopics": [
+        "Packages",
+        "Defining Packages",
+        "Using Packages",
+        "import and static import",
+        "Access protection"
+       ]
+      },
+      {
+       "title": "Interface",
+       "subtopics": [
+        "Defining Interfaces",
+        "abstract methods declarations",
+        "implementing interfaces",
+        "extended interfaces",
+        "interface references"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "hours": 9,
+     "text": "Exception handling: Exception Types, Exception class, RuntimeException Class, Error Class, Checked and uncheced Exceptions, Defining new exceptions; Handling: try, catch and finally; throw statement, throws clause. Input/Output:Basics, Byte and Character Streams, reading and writing from console and file. Multithreaded programming: Java thread model, synchronization, messaging, thread class, Runnable interface, inter thread communication, Producer/ consumer problems, Wait () and notify ().",
+     "topics": [
+      {
+       "title": "Exception handling",
+       "subtopics": [
+        "Exception Types",
+        "Exception class",
+        "RuntimeException Class",
+        "Error Class",
+        "Checked and uncheced Exceptions",
+        "Defining new exceptions"
+       ]
+      },
+      {
+       "title": "Handling",
+       "subtopics": [
+        "try",
+        "catch and finally"
+       ]
+      },
+      {
+       "title": "throw statement",
+       "subtopics": []
+      },
+      {
+       "title": "throws clause",
+       "subtopics": []
+      },
+      {
+       "title": "Input/Output",
+       "subtopics": [
+        "Basics",
+        "Byte and Character Streams",
+        "reading and writing from console and file"
+       ]
+      },
+      {
+       "title": "Multithreaded programming",
+       "subtopics": [
+        "Java thread model",
+        "synchronization",
+        "messaging",
+        "thread class",
+        "Runnable interface",
+        "inter thread communication",
+        "Producer/ consumer problems",
+        "Wait () and notify ()"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "hours": 9,
+     "text": "Collection and Generic Framework: Introduction to Collection and Generic Framework: Object class and typesafety, Generics, Interfaces Iterator, List, Set, ArrayList, LinkedList HashSet and ArrayDeque classes AWT & Swing: Introduction to AWT and Swings, Swings advantages over AWT, Swing applications, Swing Controls : JButton ,JLabel , JCheckBox , JRadioButton , JList , JComboBox, JTextFiled, JTextArea , JScrollBar, JTable, Graphics in swing",
+     "topics": [
+      {
+       "title": "Introduction to Collection and Generic Framework",
+       "subtopics": [
+        "Object class and typesafety",
+        "Generics",
+        "Interfaces Iterator",
+        "List",
+        "Set",
+        "ArrayList"
+       ]
+      },
+      {
+       "title": "LinkedList HashSet and ArrayDeque classes AWT & Swing",
+       "subtopics": [
+        "Introduction to AWT and Swings",
+        "Swings advantages over AWT",
+        "Swing applications"
+       ]
+      },
+      {
+       "title": "Swing Controls",
+       "subtopics": [
+        "JButton",
+        "JLabel",
+        "JCheckBox",
+        "JRadioButton",
+        "JList",
+        "JComboBox",
+        "JTextFiled",
+        "JTextArea",
+        "JScrollBar",
+        "JTable",
+        "Graphics in swing"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "hours": 9,
+     "text": "Event Handling:Event delegation model, classes, Event Listener Interfaces, Adapter classes. Java Database Connectivity (JDBC):The Concept of JDBC, JBDC drivers(Type1 Driver,Type4 Driver), Connection interface, Statement interface, ResultSet interface, Creating and executing SQL statements.",
+     "topics": [
+      {
+       "title": "Event Handling",
+       "subtopics": [
+        "Event delegation model",
+        "classes",
+        "Event Listener Interfaces",
+        "Adapter classes"
+       ]
+      },
+      {
+       "title": "Java Database Connectivity (JDBC)",
+       "subtopics": [
+        "The Concept of JDBC",
+        "JBDC drivers(Type1 Driver,Type4 Driver)",
+        "Connection interface",
+        "Statement interface",
+        "ResultSet interface",
+        "Creating and executing SQL statements"
+       ]
+      }
+     ]
+    }
+   ],
+   "total_hours": 46,
+   "warnings": []
+  },
+  {
+   "code": "TCS 409",
+   "title": "Design and Analysis of Algorithms",
+   "semester": 4,
+   "department": "Computer Science and Engineering",
+   "category": "DC",
+   "pages": [
+    57,
+    59
+   ],
+   "course_outcomes": [
+    {
+     "code": "CO1",
+     "text": "Understand various asymptotic notations to analyze time and space complexity of algorithms."
+    },
+    {
+     "code": "CO2",
+     "text": "Analyze the various paradigms for designing efficient algorithms using concepts of design and conquer, greedy and dynamic programming techniques."
+    },
+    {
+     "code": "CO3",
+     "text": "Provide solutions to complex problems using the concept of back tracking and branch and bound techniques."
+    },
+    {
+     "code": "CO4",
+     "text": "Apply algorithm design techniques to predict the complexity of certain NP complete problems."
+    },
+    {
+     "code": "CO5",
+     "text": "Implement Dijkstra’s, Bellman-ford, Prims, Kruskal’s algorithms to solve the real world problems like traveling salesman problem, job sequencing, packet routing etc"
+    },
+    {
+     "code": "CO6",
+     "text": "Apply pattern matching algorithms like Rabin Karp Algorithm, Brute-force techniques etc to find a particular pattern."
+    }
+   ],
+   "units": [
+    {
+     "number": 1,
+     "hours": 8,
+     "text": "Asymptotic Notations and Searching Algorithms Introduction to Algorithms - What is an Algorithm, Rate of growth, Commonly used rate of growths, Types of analysis, Asymptotic Notations, Master theorem Searching - Linear search (sorted and unsorted), Iterative and recursive binary search, Tower of Hanoi and solving its recursion, Fibonacci and solving its recursion",
+     "topics": [
+      {
+       "title": "Asymptotic Notations and Searching Algorithms Introduction to Algorithms - What is an Algorithm",
+       "subtopics": []
+      },
+      {
+       "title": "Rate of growth",
+       "subtopics": []
+      },
+      {
+       "title": "Commonly used rate of growths",
+       "subtopics": []
+      },
+      {
+       "title": "Types of analysis",
+       "subtopics": []
+      },
+      {
+       "title": "Asymptotic Notations",
+       "subtopics": []
+      },
+      {
+       "title": "Master theorem Searching - Linear search (sorted and unsorted)",
+       "subtopics": []
+      },
+      {
+       "title": "Iterative and recursive binary search",
+       "subtopics": []
+      },
+      {
+       "title": "Tower of Hanoi and solving its recursion",
+       "subtopics": []
+      },
+      {
+       "title": "Fibonacci and solving its recursion",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "hours": 10,
+     "text": "Sorting Algorithms Sorting - Bubble sort, Insertion sort, selection sort, quick sort, randomized quick sort, merge sort, heap sort, counting sort, External sorting Divide sorting algorithms into following types - online sort, stable sort, in place sort, Comparison of sorting algorithms on the basis of number of swaps, by number of comparisons, recursive or iterative nature, time and space complexity",
+     "topics": [
+      {
+       "title": "Sorting Algorithms Sorting",
+       "subtopics": [
+        "Bubble sort",
+        "Insertion sort",
+        "selection sort",
+        "quick sort",
+        "randomized quick sort",
+        "merge sort",
+        "heap sort",
+        "counting sort",
+        "External sorting Divide sorting algorithms into following types - online sort",
+        "stable sort",
+        "in place sort",
+        "Comparison of sorting algorithms on the basis of number of swaps",
+        "by number of comparisons",
+        "recursive or iterative nature",
+        "time and space complexity"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "hours": 12,
+     "text": "Graph Algorithms Representation of Graphs, Breadth-first search (BFS), depth-first search (DFS), topological sort, Difference between BFS and DFS Data structures for disjoint sets - Finding cycle in a graph, Finding strongly connected components Minimum spanning trees - Kruskal and Prim algorithms (Greedy Algorithms) Single source shortest paths - Dijkstra (Greedy Approach) and Bellman ford (Dynamic Programming) algorithms All pair shortest paths - The Floyd Warshall algorithm",
+     "topics": [
+      {
+       "title": "Graph Algorithms Representation of Graphs",
+       "subtopics": []
+      },
+      {
+       "title": "Breadth-first search (BFS)",
+       "subtopics": []
+      },
+      {
+       "title": "depth-first search (DFS)",
+       "subtopics": []
+      },
+      {
+       "title": "topological sort",
+       "subtopics": []
+      },
+      {
+       "title": "Difference between BFS and DFS Data structures for disjoint sets - Finding cycle in a graph",
+       "subtopics": []
+      },
+      {
+       "title": "Finding strongly connected components Minimum spanning trees - Kruskal and Prim algorithms (Greedy Algorithms) Single source shortest paths - Dijkstra (Greedy Approach) and Bellman ford (Dynamic Progr",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "hours": 10,
+     "text": "Algorithm Design Techniques - Greedy and Dynamic Programming Greedy algorithms - Activity selection problem, Job sequencing problem, Huffman codes, fractional knapsack problem Dynamic Programming - Overlapping substructure property, Optimal substructure property, Tabulation vs Memoization, Fibonacci numbers, 0/1 Knapsack problem, Longest common subsequence, Matrix chain multiplication",
+     "topics": [
+      {
+       "title": "Greedy and Dynamic Programming Greedy algorithms",
+       "subtopics": [
+        "Activity selection problem",
+        "Job sequencing problem",
+        "Huffman codes",
+        "fractional knapsack problem Dynamic Programming - Overlapping substructure property",
+        "Optimal substructure property",
+        "Tabulation vs Memoization",
+        "Fibonacci numbers",
+        "0/1 Knapsack problem",
+        "Longest common subsequence",
+        "Matrix chain multiplication"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "hours": 10,
+     "text": "Hashing, String Matching and NP-Completeness Hashing Data Structure - Introduction to Hashing, Hash function, Collision and collision handling, Collision handling - Chaining, Open addressing String Matching - Naive string-matching algorithm, The Rabin-Karp algorithm, The Knuth-Morris-Pratt algorithm NP-Completeness - Importance of NP-completeness, P, NP, NP Complete and NP hard problems, Polynomial time and polynomial time verification, The subset-sum problem, The traveling salesman problem",
+     "topics": [
+      {
+       "title": "Hashing",
+       "subtopics": []
+      },
+      {
+       "title": "String Matching and NP-Completeness Hashing Data Structure - Introduction to Hashing",
+       "subtopics": []
+      },
+      {
+       "title": "Hash function",
+       "subtopics": []
+      },
+      {
+       "title": "Collision and collision handling",
+       "subtopics": []
+      },
+      {
+       "title": "Collision handling - Chaining",
+       "subtopics": []
+      },
+      {
+       "title": "Open addressing String Matching - Naive string-matching algorithm",
+       "subtopics": []
+      },
+      {
+       "title": "The Rabin-Karp algorithm",
+       "subtopics": []
+      },
+      {
+       "title": "The Knuth-Morris-Pratt algorithm NP-Completeness - Importance of NP-completeness",
+       "subtopics": []
+      },
+      {
+       "title": "NP",
+       "subtopics": []
+      },
+      {
+       "title": "NP Complete and NP hard problems",
+       "subtopics": []
+      },
+      {
+       "title": "Polynomial time and polynomial time verification",
+       "subtopics": []
+      },
+      {
+       "title": "The subset-sum problem",
+       "subtopics": []
+      },
+      {
+       "title": "The traveling salesman problem",
+       "subtopics": []
+      }
+     ]
+    }
+   ],
+   "total_hours": 50,
+   "warnings": []
+  },
+  {
+   "code": "TCS 503",
+   "title": "Database Management System",
+   "semester": 5,
+   "department": "Computer Science and Engineering",
+   "category": "DC",
+   "pages": [
+    119,
+    121
+   ],
+   "course_outcomes": [
+    {
+     "code": "CO1",
+     "text": "Understand the different issues involved in the design and implementation of a database system."
+    },
+    {
+     "code": "CO2",
+     "text": "Study the physical and logical database designs, database modeling, relational, hierarchical, and network models."
+    },
+    {
+     "code": "CO3",
+     "text": "Understand and use data manipulation language to query, update, and manage a database."
+    },
+    {
+     "code": "CO4",
+     "text": "Develop an understanding of essential DBMS concepts such as: database security, integrity, concurrency."
+    },
+    {
+     "code": "CO5",
+     "text": "Design and build a simple database system and demonstrate competence with the fundamental tasks involved with modeling, designing, and implementing a DBMS."
+    },
+    {
+     "code": "CO6",
+     "text": "Evaluate a business situation and designing & building a database application"
+    }
+   ],
+   "units": [
+    {
+     "number": 1,
+     "hours": 9,
+     "text": "Introduction: An overview of DBMS; Advantages of using DBMS approach; Database systems vs File Systems, Database system concepts and architecture Data models, schemas, and instances; Three-schema architecture and data independence; Database languages and interfaces; The database system environment; Centralized and client-server architectures; Classification of Database Management systems.",
+     "topics": [
+      {
+       "title": "Introduction",
+       "subtopics": [
+        "An overview of DBMS"
+       ]
+      },
+      {
+       "title": "Advantages of using DBMS approach",
+       "subtopics": []
+      },
+      {
+       "title": "Database systems vs File Systems",
+       "subtopics": []
+      },
+      {
+       "title": "Database system concepts and architecture Data models",
+       "subtopics": []
+      },
+      {
+       "title": "schemas",
+       "subtopics": []
+      },
+      {
+       "title": "and instances",
+       "subtopics": []
+      },
+      {
+       "title": "Three-schema architecture and data independence",
+       "subtopics": []
+      },
+      {
+       "title": "Database languages and interfaces",
+       "subtopics": []
+      },
+      {
+       "title": "The database system environment",
+       "subtopics": []
+      },
+      {
+       "title": "Centralized and client-server architectures",
+       "subtopics": []
+      },
+      {
+       "title": "Classification of Database Management systems",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "hours": 9,
+     "text": "Entity-Relationship Model: Using High-Level Conceptual Data Models for Database Design; An Example Database Application; Entity Types, Entity Sets, Attributes and Keys; Relationship types, Relationship Sets, Roles and Structural Constraints; Weak Entity Types; Refining the ER Design; ER Diagrams, Naming Conventions and Design Issues; Relationship types of degree higher than two.",
+     "topics": [
+      {
+       "title": "Entity-Relationship Model",
+       "subtopics": [
+        "Using High-Level Conceptual Data Models for Database Design"
+       ]
+      },
+      {
+       "title": "An Example Database Application",
+       "subtopics": []
+      },
+      {
+       "title": "Entity Types",
+       "subtopics": []
+      },
+      {
+       "title": "Entity Sets",
+       "subtopics": []
+      },
+      {
+       "title": "Attributes and Keys",
+       "subtopics": []
+      },
+      {
+       "title": "Relationship types",
+       "subtopics": []
+      },
+      {
+       "title": "Relationship Sets",
+       "subtopics": []
+      },
+      {
+       "title": "Roles and Structural Constraints",
+       "subtopics": []
+      },
+      {
+       "title": "Weak Entity Types",
+       "subtopics": []
+      },
+      {
+       "title": "Refining the ER Design",
+       "subtopics": []
+      },
+      {
+       "title": "ER Diagrams",
+       "subtopics": []
+      },
+      {
+       "title": "Naming Conventions and Design Issues",
+       "subtopics": []
+      },
+      {
+       "title": "Relationship types of degree higher than two",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "hours": 11,
+     "text": "Relational Model and Relational Algebra: Relational Model Concepts; Relational Model Constraints and Relational Database Schemas; Update Operations, Transactions and dealing with constraint violations; Unary Relational Operations: SELECT and PROJECT; Relational Algebra and Calculus Operations from Set Theory; Binary Relational Operations: JOIN and DIVISION; Additional Relational Operations. Examples of Queries in Relational Algebra; Relational Database Design Using ER- to-Relational Mapping. SQL – 1: SQL Data Definition and Data Types; Specifying basic constraints in SQL; Schema change statements in SQL; Basic queries in SQL; More complex SQL Queries. Insert, Delete and Update statements in SQL; Specifying constraints as Assertion and Trigger; Views (Virtual Tables) in SQL; Additional features of SQL; Database programming issues and techniques; Embedded SQL, Dynamic SQL; Database stored procedures. Optimization of SQL Queries through Indexes, Concepts of NoSQL.",
+     "topics": [
+      {
+       "title": "Relational Model and Relational Algebra",
+       "subtopics": [
+        "Relational Model Concepts"
+       ]
+      },
+      {
+       "title": "Relational Model Constraints and Relational Database Schemas",
+       "subtopics": []
+      },
+      {
+       "title": "Update Operations",
+       "subtopics": []
+      },
+      {
+       "title": "Transactions and dealing with constraint violations",
+       "subtopics": []
+      },
+      {
+       "title": "Unary Relational Operations",
+       "subtopics": [
+        "SELECT and PROJECT"
+       ]
+      },
+      {
+       "title": "Relational Algebra and Calculus Operations from Set Theory",
+       "subtopics": []
+      },
+      {
+       "title": "Binary Relational Operations",
+       "subtopics": [
+        "JOIN and DIVISION"
+       ]
+      },
+      {
+       "title": "Additional Relational Operations",
+       "subtopics": []
+      },
+      {
+       "title": "Examples of Queries in Relational Algebra",
+       "subtopics": []
+      },
+      {
+       "title": "Relational Database Design Using ER",
+       "subtopics": [
+        "to-Relational Mapping"
+       ]
+      },
+      {
+       "title": "SQL – 1",
+       "subtopics": [
+        "SQL Data Definition and Data Types"
+       ]
+      },
+      {
+       "title": "Specifying basic constraints in SQL",
+       "subtopics": []
+      },
+      {
+       "title": "Schema change statements in SQL",
+       "subtopics": []
+      },
+      {
+       "title": "Basic queries in SQL",
+       "subtopics": []
+      },
+      {
+       "title": "More complex SQL Queries",
+       "subtopics": []
+      },
+      {
+       "title": "Insert",
+       "subtopics": []
+      },
+      {
+       "title": "Delete and Update statements in SQL",
+       "subtopics": []
+      },
+      {
+       "title": "Specifying constraints as Assertion and Trigger",
+       "subtopics": []
+      },
+      {
+       "title": "Views (Virtual Tables) in SQL",
+       "subtopics": []
+      },
+      {
+       "title": "Additional features of SQL",
+       "subtopics": []
+      },
+      {
+       "title": "Database programming issues and techniques",
+       "subtopics": []
+      },
+      {
+       "title": "Embedded SQL",
+       "subtopics": []
+      },
+      {
+       "title": "Dynamic SQL",
+       "subtopics": []
+      },
+      {
+       "title": "Database stored procedures",
+       "subtopics": []
+      },
+      {
+       "title": "Optimization of SQL Queries through Indexes",
+       "subtopics": []
+      },
+      {
+       "title": "Concepts of NoSQL",
+       "subtopics": []
+      }
+     ],
+     "label_missing_in_source": true
+    },
+    {
+     "number": 4,
+     "hours": 9,
+     "text": "Database Design – 1: Informal Design Guidelines for Relation Schemas; Functional Dependencies; Normal Forms Based on Primary Keys; General Definitions of Second and Third Normal Forms; Boyce-Codd Normal Form Properties of Relational Decompositions; Algorithms for Relational Database Schema Design; Multivalued Dependencies and Fourth Normal Form; Join Dependencies and Fifth Normal Form; Inclusion Dependencies; Other Dependencies and Normal Forms",
+     "topics": [
+      {
+       "title": "Database Design – 1",
+       "subtopics": [
+        "Informal Design Guidelines for Relation Schemas"
+       ]
+      },
+      {
+       "title": "Functional Dependencies",
+       "subtopics": []
+      },
+      {
+       "title": "Normal Forms Based on Primary Keys",
+       "subtopics": []
+      },
+      {
+       "title": "General Definitions of Second and Third Normal Forms",
+       "subtopics": []
+      },
+      {
+       "title": "Boyce-Codd Normal Form Properties of Relational Decompositions",
+       "subtopics": []
+      },
+      {
+       "title": "Algorithms for Relational Database Schema Design",
+       "subtopics": []
+      },
+      {
+       "title": "Multivalued Dependencies and Fourth Normal Form",
+       "subtopics": []
+      },
+      {
+       "title": "Join Dependencies and Fifth Normal Form",
+       "subtopics": []
+      },
+      {
+       "title": "Inclusion Dependencies",
+       "subtopics": []
+      },
+      {
+       "title": "Other Dependencies and Normal Forms",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "hours": 10,
+     "text": "Transaction Management: The ACID Properties; Transactions and Schedules; Concurrent Execution of Transactions; Lock- Based Concurrency Control; Performance of locking; Transaction support in SQL; Introduction to crash recovery; 2PL, Serializability and Recoverability; Lock 9Management; Log Files; Checkpointing; Recovering from a System Crash; Media Recovery",
+     "topics": [
+      {
+       "title": "Transaction Management",
+       "subtopics": [
+        "The ACID Properties"
+       ]
+      },
+      {
+       "title": "Transactions and Schedules",
+       "subtopics": []
+      },
+      {
+       "title": "Concurrent Execution of Transactions",
+       "subtopics": []
+      },
+      {
+       "title": "Lock",
+       "subtopics": [
+        "Based Concurrency Control"
+       ]
+      },
+      {
+       "title": "Performance of locking",
+       "subtopics": []
+      },
+      {
+       "title": "Transaction support in SQL",
+       "subtopics": []
+      },
+      {
+       "title": "Introduction to crash recovery",
+       "subtopics": []
+      },
+      {
+       "title": "2PL",
+       "subtopics": []
+      },
+      {
+       "title": "Serializability and Recoverability",
+       "subtopics": []
+      },
+      {
+       "title": "Lock 9Management",
+       "subtopics": []
+      },
+      {
+       "title": "Log Files",
+       "subtopics": []
+      },
+      {
+       "title": "Checkpointing",
+       "subtopics": []
+      },
+      {
+       "title": "Recovering from a System Crash",
+       "subtopics": []
+      },
+      {
+       "title": "Media Recovery",
+       "subtopics": []
+      }
+     ]
+    }
+   ],
+   "total_hours": 48,
+   "warnings": [
+    "Unit 3 has no \"Unit 3\" label in the source; it was identified by its row number"
+   ]
+  },
+  {
+   "code": "TCS 571",
+   "title": "Big Data Visualization",
+   "semester": 5,
+   "department": "Computer Science and Engineering",
+   "category": "DE",
+   "pages": [
+    130,
+    131
+   ],
+   "course_outcomes": [
+    {
+     "code": "CO1",
+     "text": "Create and adapt visualizations to represent complex data sets and emphasize targeted concepts for effective communication"
+    },
+    {
+     "code": "CO2",
+     "text": "Analyze and interpret large volumes of data to identify patterns, trends, and insights."
+    },
+    {
+     "code": "CO3",
+     "text": "Apply data visualization techniques to communicate complex data sets effectively."
+    },
+    {
+     "code": "CO4",
+     "text": "Develop skills in storytelling with data, effectively conveying narratives through visual representations."
+    },
+    {
+     "code": "CO5",
+     "text": "Demonstrate proficiency in using tools and technologies for big data visualization."
+    },
+    {
+     "code": "CO6",
+     "text": "Use leading open-source and commercial software packages (Tableau) to create and publish visualizations that enable clear interpretations of big, complex, and real-world data"
+    }
+   ],
+   "units": [
+    {
+     "number": 1,
+     "hours": 10,
+     "text": "Techniques for visual data representations: Data Visualization, Information Visualization, Concept Visualization, Strategic Visualization, Metaphor Visualization, and Compound Visualization. Visualization design objectives: Methodology, Establishing intent, The visualization's function-explain, explore, exhibit; Tone-analytical and abstract, key factors in a visualization project, The eight hats of data visualization design",
+     "topics": [
+      {
+       "title": "Techniques for visual data representations",
+       "subtopics": [
+        "Data Visualization",
+        "Information Visualization",
+        "Concept Visualization",
+        "Strategic Visualization",
+        "Metaphor Visualization",
+        "and Compound Visualization"
+       ]
+      },
+      {
+       "title": "Visualization design objectives",
+       "subtopics": [
+        "Methodology",
+        "Establishing intent",
+        "The visualization's function-explain",
+        "explore",
+        "exhibit"
+       ]
+      },
+      {
+       "title": "Tone-analytical and abstract",
+       "subtopics": []
+      },
+      {
+       "title": "key factors in a visualization project",
+       "subtopics": []
+      },
+      {
+       "title": "The eight hats of data visualization design",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "hours": 10,
+     "text": "Demonstrating Editorial Focus: Importance of editorial focus, Preparing and familiarizing of data, Refining the editorial focus, Using visual analysis to find stories Conceiving and Reasoning: Preparing data, Refining, The Visualization anatomy - Data Representation: choosing correct visualization method, physical properties of data, degree of accuracy in interpretation, creating an appropriate design metaphor, choosing the final solution; The Visualization anatomy- Data presentation: Interactivity, Annotation, and Arrangement;",
+     "topics": [
+      {
+       "title": "Demonstrating Editorial Focus",
+       "subtopics": [
+        "Importance of editorial focus",
+        "Preparing and familiarizing of data",
+        "Refining the editorial focus",
+        "Using visual analysis to find stories"
+       ]
+      },
+      {
+       "title": "Conceiving and Reasoning",
+       "subtopics": [
+        "Preparing data",
+        "Refining"
+       ]
+      },
+      {
+       "title": "The Visualization anatomy - Data Representation",
+       "subtopics": [
+        "choosing correct visualization method",
+        "physical properties of data",
+        "degree of accuracy in interpretation",
+        "creating an appropriate design metaphor",
+        "choosing the final solution"
+       ]
+      },
+      {
+       "title": "The Visualization anatomy- Data presentation",
+       "subtopics": [
+        "Interactivity",
+        "Annotation",
+        "and Arrangement"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "hours": 9,
+     "text": "Taxonomy of Data Visualization: Choosing appropriate chart type: Dot plot, Column chart, Floating bar, pixelated bar chart, Histogram, Slopegraph, Radial chart, Glyph chart, Sankey diagram, Area size chart; Assessing hierarchies and part-to-whole relationships: Pie chart, Stacked bar chart, Square pie, Treemap, Circle packing diagram, Bubble hierarchy, Tree Hierarchy; Showing changes over time: Line chart, Sparklines, Area chart, Horizon chart, Stacked area chart, Candlestick chart, Barcode chart, Flow map; Plotting connections and relationships: Scatter plot, Bubble plot, Scatter plot matrix, Heatmap, Parallel sets, Radial network, Network Diagram; Mapping geospatial data: Choropleth map, dot plot map, Bubble plot map, Isarithmic map",
+     "topics": [
+      {
+       "title": "Choosing appropriate chart type",
+       "subtopics": [
+        "Dot plot",
+        "Column chart",
+        "Floating bar",
+        "pixelated bar chart",
+        "Histogram",
+        "Slopegraph",
+        "Radial chart",
+        "Glyph chart",
+        "Sankey diagram",
+        "Area size chart"
+       ]
+      },
+      {
+       "title": "Assessing hierarchies and part-to-whole relationships",
+       "subtopics": [
+        "Pie chart",
+        "Stacked bar chart",
+        "Square pie",
+        "Treemap",
+        "Circle packing diagram",
+        "Bubble hierarchy",
+        "Tree Hierarchy"
+       ]
+      },
+      {
+       "title": "Showing changes over time",
+       "subtopics": [
+        "Line chart",
+        "Sparklines",
+        "Area chart",
+        "Horizon chart",
+        "Stacked area chart",
+        "Candlestick chart",
+        "Barcode chart",
+        "Flow map"
+       ]
+      },
+      {
+       "title": "Plotting connections and relationships",
+       "subtopics": [
+        "Scatter plot",
+        "Bubble plot",
+        "Scatter plot matrix",
+        "Heatmap",
+        "Parallel sets",
+        "Radial network",
+        "Network Diagram"
+       ]
+      },
+      {
+       "title": "Mapping geospatial data",
+       "subtopics": [
+        "Choropleth map",
+        "dot plot map",
+        "Bubble plot map",
+        "Isarithmic map"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "hours": 9,
+     "text": "Tools for data visualization: Tableau, Google Charts, Datawrapper, Chartio, IBM Watson Analytics, and Sisense",
+     "topics": [
+      {
+       "title": "Tools for data visualization",
+       "subtopics": [
+        "Tableau",
+        "Google Charts",
+        "Datawrapper",
+        "Chartio",
+        "IBM Watson Analytics",
+        "and Sisense"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "hours": 8,
+     "text": "Data Visualization through Tableau: Tableau basics, connecting Tableau to various datasets, creating bar charts, area charts, maps, scatterplots, pie charts, and tree maps; Create Interactive Dashboards, storylines, Joins, Data Blending, Table calculations, parameters, Dual axis charts, Export results from Tableau to other software, Work with time-series data, Creating data extracts, Aggregation, Granularity and Level of detail, Adding filters, create data hierarchies, Adding actions to dashboards",
+     "topics": [
+      {
+       "title": "Data Visualization through Tableau",
+       "subtopics": [
+        "Tableau basics",
+        "connecting Tableau to various datasets",
+        "creating bar charts",
+        "area charts",
+        "maps",
+        "scatterplots",
+        "pie charts",
+        "and tree maps"
+       ]
+      },
+      {
+       "title": "Create Interactive Dashboards",
+       "subtopics": []
+      },
+      {
+       "title": "storylines",
+       "subtopics": []
+      },
+      {
+       "title": "Joins",
+       "subtopics": []
+      },
+      {
+       "title": "Data Blending",
+       "subtopics": []
+      },
+      {
+       "title": "Table calculations",
+       "subtopics": []
+      },
+      {
+       "title": "parameters",
+       "subtopics": []
+      },
+      {
+       "title": "Dual axis charts",
+       "subtopics": []
+      },
+      {
+       "title": "Export results from Tableau to other software",
+       "subtopics": []
+      },
+      {
+       "title": "Work with time-series data",
+       "subtopics": []
+      },
+      {
+       "title": "Creating data extracts",
+       "subtopics": []
+      },
+      {
+       "title": "Aggregation",
+       "subtopics": []
+      },
+      {
+       "title": "Granularity and Level of detail",
+       "subtopics": []
+      },
+      {
+       "title": "Adding filters",
+       "subtopics": []
+      },
+      {
+       "title": "create data hierarchies",
+       "subtopics": []
+      },
+      {
+       "title": "Adding actions to dashboards",
+       "subtopics": []
+      }
+     ]
+    }
+   ],
+   "total_hours": 46,
+   "warnings": []
+  },
+  {
+   "code": "TCS 601",
+   "title": "Compiler Design",
+   "semester": 6,
+   "department": "Computer Science and Engineering",
+   "category": "DC",
+   "pages": [
+    170,
+    172
+   ],
+   "course_outcomes": [
+    {
+     "code": "CO1",
+     "text": "Understand the various phases and fundamental principles of compiler design like lexical, syntactical, semantic analysis, code generation and optimization."
+    },
+    {
+     "code": "CO2",
+     "text": "Compare and contrast various parsing techniques such as SLR, CLR, LALR etc."
+    },
+    {
+     "code": "CO3",
+     "text": "Use annotated tree to design the semantic rules for different aspects of programming language."
+    },
+    {
+     "code": "CO4",
+     "text": "Implement lexical analyzer and parser by using modern tools like Flex and Bison."
+    },
+    {
+     "code": "CO5",
+     "text": "Examine patterns, tokens & regular expressions for solving a problem in the field of data mining."
+    },
+    {
+     "code": "CO6",
+     "text": "Design a compiler for concise programming language."
+    }
+   ],
+   "units": [
+    {
+     "number": 1,
+     "hours": 9,
+     "text": "Introduction, Lexical analysis: Compilers; Analysis of Source Program; The Phases of a Compiler; Cousins of the Compiler; The grouping of phases; Compiler- Construction toolsz Lexical analysis: The Role of Lexical Analyzer; Input Buffering; Specifications of Tokens; Recognition of Tokens.",
+     "topics": [
+      {
+       "title": "Introduction, Lexical analysis",
+       "subtopics": [
+        "Compilers"
+       ]
+      },
+      {
+       "title": "Analysis of Source Program",
+       "subtopics": []
+      },
+      {
+       "title": "The Phases of a Compiler",
+       "subtopics": []
+      },
+      {
+       "title": "Cousins of the Compiler",
+       "subtopics": []
+      },
+      {
+       "title": "The grouping of phases",
+       "subtopics": []
+      },
+      {
+       "title": "Compiler- Construction toolsz Lexical analysis",
+       "subtopics": [
+        "The Role of Lexical Analyzer"
+       ]
+      },
+      {
+       "title": "Input Buffering",
+       "subtopics": []
+      },
+      {
+       "title": "Specifications of Tokens",
+       "subtopics": []
+      },
+      {
+       "title": "Recognition of Tokens",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "hours": 9,
+     "text": "Syntax Analysis – 1: The Role of the Parser; Context-free Grammars; Writing a Grammar; Top-down Parsing; Bottom-up Parsing. Operator-Precedence Parsing; LR Parsers; Using ambiguous grammars; Parser Generators",
+     "topics": [
+      {
+       "title": "Syntax Analysis – 1",
+       "subtopics": [
+        "The Role of the Parser"
+       ]
+      },
+      {
+       "title": "Context-free Grammars",
+       "subtopics": []
+      },
+      {
+       "title": "Writing a Grammar",
+       "subtopics": []
+      },
+      {
+       "title": "Top-down Parsing",
+       "subtopics": []
+      },
+      {
+       "title": "Bottom-up Parsing",
+       "subtopics": []
+      },
+      {
+       "title": "Operator-Precedence Parsing",
+       "subtopics": []
+      },
+      {
+       "title": "LR Parsers",
+       "subtopics": []
+      },
+      {
+       "title": "Using ambiguous grammars",
+       "subtopics": []
+      },
+      {
+       "title": "Parser Generators",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "hours": 8,
+     "text": "Syntax-Directed Translation: Syntax-Directed definitions; Constructions of Syntax Trees; Bottom-up evaluation of S-attributed definitions; L-attributed definitions; Top-down translation. Run-Time Environments : Source Language Issues; Storage Organization; Storage-allocation strategies, Storage- allocation in C; Parameter passing",
+     "topics": [
+      {
+       "title": "Syntax-Directed Translation",
+       "subtopics": [
+        "Syntax-Directed definitions"
+       ]
+      },
+      {
+       "title": "Constructions of Syntax Trees",
+       "subtopics": []
+      },
+      {
+       "title": "Bottom-up evaluation of S-attributed definitions",
+       "subtopics": []
+      },
+      {
+       "title": "L-attributed definitions",
+       "subtopics": []
+      },
+      {
+       "title": "Top-down translation",
+       "subtopics": []
+      },
+      {
+       "title": "Run-Time Environments",
+       "subtopics": [
+        "Source Language Issues"
+       ]
+      },
+      {
+       "title": "Storage Organization",
+       "subtopics": []
+      },
+      {
+       "title": "Storage-allocation strategies, Storage",
+       "subtopics": [
+        "allocation in C"
+       ]
+      },
+      {
+       "title": "Parameter passing",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "hours": 9,
+     "text": "Intermediate Code Generation: Intermediate Languages; Declarations; Assignment statements; Boolean Expressions; Case statements; Back patching; Procedure calls. Code Generation: Issues in the design of Code Generator; The Target Machine; Run-time Storage Management; Basic blocks and Flow graphs; Next-use information; A Simple Code Generator; Register allocation and assignment; The dag representation of basic blocks; Generating code from dags.",
+     "topics": [
+      {
+       "title": "Intermediate Code Generation",
+       "subtopics": [
+        "Intermediate Languages"
+       ]
+      },
+      {
+       "title": "Declarations",
+       "subtopics": []
+      },
+      {
+       "title": "Assignment statements",
+       "subtopics": []
+      },
+      {
+       "title": "Boolean Expressions",
+       "subtopics": []
+      },
+      {
+       "title": "Case statements",
+       "subtopics": []
+      },
+      {
+       "title": "Back patching",
+       "subtopics": []
+      },
+      {
+       "title": "Procedure calls",
+       "subtopics": []
+      },
+      {
+       "title": "Code Generation",
+       "subtopics": [
+        "Issues in the design of Code Generator"
+       ]
+      },
+      {
+       "title": "The Target Machine",
+       "subtopics": []
+      },
+      {
+       "title": "Run-time Storage Management",
+       "subtopics": []
+      },
+      {
+       "title": "Basic blocks and Flow graphs",
+       "subtopics": []
+      },
+      {
+       "title": "Next-use information",
+       "subtopics": []
+      },
+      {
+       "title": "A Simple Code Generator",
+       "subtopics": []
+      },
+      {
+       "title": "Register allocation and assignment",
+       "subtopics": []
+      },
+      {
+       "title": "The dag representation of basic blocks",
+       "subtopics": []
+      },
+      {
+       "title": "Generating code from dags",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "hours": 9,
+     "text": "Code Optimization, Compiler Development: Code Optimization: Introduction; The principal sources of optimization; Peephole optimization; Optimization of basic blocks; Loops in flow graphs. Compiler Development: Planning a compiler; Approaches to compiler development; the compiler development environment; Testing and maintenance.",
+     "topics": [
+      {
+       "title": "Code Optimization, Compiler Development",
+       "subtopics": []
+      },
+      {
+       "title": "Code Optimization",
+       "subtopics": [
+        "Introduction"
+       ]
+      },
+      {
+       "title": "The principal sources of optimization",
+       "subtopics": []
+      },
+      {
+       "title": "Peephole optimization",
+       "subtopics": []
+      },
+      {
+       "title": "Optimization of basic blocks",
+       "subtopics": []
+      },
+      {
+       "title": "Loops in flow graphs",
+       "subtopics": []
+      },
+      {
+       "title": "Compiler Development",
+       "subtopics": [
+        "Planning a compiler"
+       ]
+      },
+      {
+       "title": "Approaches to compiler development",
+       "subtopics": []
+      },
+      {
+       "title": "the compiler development environment",
+       "subtopics": []
+      },
+      {
+       "title": "Testing and maintenance",
+       "subtopics": []
+      }
+     ]
+    }
+   ],
+   "total_hours": 44,
+   "warnings": []
+  },
+  {
+   "code": "TCS 611",
+   "title": "Software Engineering",
+   "semester": 6,
+   "department": "Computer Science and Engineering",
+   "category": "DC",
+   "pages": [
+    172,
+    175
+   ],
+   "course_outcomes": [
+    {
+     "code": "CO1",
+     "text": "Understand Software Development Life Cycle and importance of engineering the software."
+    },
+    {
+     "code": "CO2",
+     "text": "Development of efficient software requirement specification for desired product."
+    },
+    {
+     "code": "CO3",
+     "text": "Compare various software development methodologies ad conclude on their applicability in developing specific type of product."
+    },
+    {
+     "code": "CO4",
+     "text": "Construct an efficient design specification document for attainment of user desired product."
+    },
+    {
+     "code": "CO5",
+     "text": "Develop applications using the concepts of various phases of software development life cycle."
+    },
+    {
+     "code": "CO6",
+     "text": "Study various software testing techniques and identify their relevance to developing a quality software."
+    }
+   ],
+   "units": [
+    {
+     "number": 1,
+     "hours": 10,
+     "text": "Introduction:What is Software Engineering and its history, Software Crisis, Evolution of a Programming System Product, Characteristics of Software, Brooks’ No Silver Bullet, Software Myths Software Development Life Cycles: Software Development Process, The Code- and-Fix model, The Waterfall model, The Evolutionary Model, The Incremental Implementation, Prototyping, The Spiral Model, Software Reuse, Critical Comparisons of SDLC models, An Introduction to Non-Traditional Software Development Process: Rational Unified Process, Rapid Application Development, Agile Development Process",
+     "topics": [
+      {
+       "title": "Introduction",
+       "subtopics": [
+        "What is Software Engineering and its history",
+        "Software Crisis",
+        "Evolution of a Programming System Product",
+        "Characteristics of Software",
+        "Brooks’ No Silver Bullet"
+       ]
+      },
+      {
+       "title": "Software Myths Software Development Life Cycles",
+       "subtopics": [
+        "Software Development Process",
+        "The Code- and-Fix model",
+        "The Waterfall model",
+        "The Evolutionary Model",
+        "The Incremental Implementation",
+        "Prototyping",
+        "The Spiral Model",
+        "Software Reuse",
+        "Critical Comparisons of SDLC models",
+        "An"
+       ]
+      },
+      {
+       "title": "Introduction to Non-Traditional Software Development Process",
+       "subtopics": [
+        "Rational Unified Process",
+        "Rapid Application Development",
+        "Agile Development Process"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "hours": 9,
+     "text": "Requirements: Importance of Requirement Analysis, User Needs, Software Features and Software Requirements, Classes of User Requirements: Enduring and Volatile; Sub phases of Requirement Analysis, Functional and Non- functional requirements; Barriers to Eliciting User Requirements, The software requirements document and SRS standards, Requirements Engineering, Case Study of SRS for a Real Time System Tools for Requirements Gathering: Document Flow Chart, Decision Table, Decision Tree; Structured Analysis: DFD, Data Dictionary, Introduction to non- traditional Requirements Analysis Tools: FSM, Statecharts and Petrinets;",
+     "topics": [
+      {
+       "title": "Requirements",
+       "subtopics": [
+        "Importance of Requirement Analysis",
+        "User Needs",
+        "Software Features and Software Requirements"
+       ]
+      },
+      {
+       "title": "Classes of User Requirements",
+       "subtopics": [
+        "Enduring and Volatile"
+       ]
+      },
+      {
+       "title": "Sub phases of Requirement Analysis, Functional and Non",
+       "subtopics": [
+        "functional requirements"
+       ]
+      },
+      {
+       "title": "Barriers to Eliciting User Requirements",
+       "subtopics": []
+      },
+      {
+       "title": "The software requirements document and SRS standards",
+       "subtopics": []
+      },
+      {
+       "title": "Requirements Engineering",
+       "subtopics": []
+      },
+      {
+       "title": "Case Study of SRS for a Real Time System Tools for Requirements Gathering: Document Flow Chart",
+       "subtopics": []
+      },
+      {
+       "title": "Decision Table",
+       "subtopics": []
+      },
+      {
+       "title": "Decision Tree",
+       "subtopics": []
+      },
+      {
+       "title": "Structured Analysis",
+       "subtopics": [
+        "DFD",
+        "Data Dictionary"
+       ]
+      },
+      {
+       "title": "Introduction to non- traditional Requirements Analysis Tools",
+       "subtopics": [
+        "FSM",
+        "Statecharts and Petrinets"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "hours": 8,
+     "text": "Software Design: Goals of Good Software Design, Design Strategies and Methodologies, Data Oriented Software Design, Structured Design: Structure Chart, Coupling, Cohesion,, Modular Structure, Packaging; Object Oriented Design, Top-Down and Bottom-Up Approach, Design Patterns Software Measurement and Metrics: Various Size Oriented Measures: Halestead’s Software Science, Function Point (FP) Based Measures, Cyclomatic Complexity Measures: Control Flow Graphs. Development: Selecting a Language, Coding Guidelines, Writing Code, Code Documentation",
+     "topics": [
+      {
+       "title": "Software Design",
+       "subtopics": [
+        "Goals of Good Software Design",
+        "Design Strategies and Methodologies",
+        "Data Oriented Software Design"
+       ]
+      },
+      {
+       "title": "Structured Design",
+       "subtopics": [
+        "Structure Chart",
+        "Coupling",
+        "Cohesion",
+        "Modular Structure",
+        "Packaging"
+       ]
+      },
+      {
+       "title": "Object Oriented Design",
+       "subtopics": []
+      },
+      {
+       "title": "Top-Down and Bottom-Up Approach",
+       "subtopics": []
+      },
+      {
+       "title": "Design Patterns Software Measurement and Metrics: Various Size Oriented Measures: Halestead’s Software Science",
+       "subtopics": []
+      },
+      {
+       "title": "Function Point (FP) Based Measures",
+       "subtopics": []
+      },
+      {
+       "title": "Cyclomatic Complexity Measures: Control Flow Graphs",
+       "subtopics": []
+      },
+      {
+       "title": "Development",
+       "subtopics": [
+        "Selecting a Language",
+        "Coding Guidelines",
+        "Writing Code",
+        "Code Documentation"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "hours": 10,
+     "text": "Testing: Testing Objectives, Unit Testing, Integration Testing, Acceptance Testing, Regression Testing, Testing for Functionality and Testing for Performance, Top-Down and Bottom-Up Testing Strategies: Test Drivers and Test Stubs, Structural Testing (White Box Testing), Functional Testing (Black Box Testing), Test Data Suit Preparation, Alpha and Beta Testing of Products. Static Testing Strategies: Formal Technical Reviews (Peer Reviews), Walk Through, Code Inspection, Compliance with Design and Coding Standards, Automated Testing",
+     "topics": [
+      {
+       "title": "Testing",
+       "subtopics": [
+        "Testing Objectives",
+        "Unit Testing",
+        "Integration Testing",
+        "Acceptance Testing",
+        "Regression Testing",
+        "Testing for Functionality and Testing for Performance"
+       ]
+      },
+      {
+       "title": "Top-Down and Bottom-Up Testing Strategies",
+       "subtopics": [
+        "Test Drivers and Test Stubs",
+        "Structural Testing (White Box Testing)",
+        "Functional Testing (Black Box Testing)",
+        "Test Data Suit Preparation",
+        "Alpha and Beta Testing of Products"
+       ]
+      },
+      {
+       "title": "Static Testing Strategies",
+       "subtopics": [
+        "Formal Technical Reviews (Peer Reviews)",
+        "Walk Through",
+        "Code Inspection",
+        "Compliance with Design and Coding Standards",
+        "Automated Testing"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "hours": 8,
+     "text": "Software Maintenance and Software Project Management: Software as an Evolutionary Entity, Need for Maintenance, Categories of Maintenance:Preventive, Corrective and Perfective Maintenance, Cost of Maintenance, Software Re-Engineering, Reverse Engineering. Software Configuration Management Activities, Change Control Process, Software Version Control, An Overview of CASE Tools. Estimation of Various Parameters such as Cost, Efforts, Schedule/Duration, Constructive Cost Models (COCOMO), Resource Allocation Models, Software Risk Analysis and Management. Software Quality Assurance: SQA Plans, ISO 9000 models, SEI-CMM Model",
+     "topics": [
+      {
+       "title": "Software Maintenance and Software Project Management",
+       "subtopics": [
+        "Software as an Evolutionary Entity",
+        "Need for Maintenance"
+       ]
+      },
+      {
+       "title": "Categories of Maintenance",
+       "subtopics": [
+        "Preventive",
+        "Corrective and Perfective Maintenance",
+        "Cost of Maintenance",
+        "Software Re-Engineering",
+        "Reverse Engineering"
+       ]
+      },
+      {
+       "title": "Software Configuration Management Activities",
+       "subtopics": []
+      },
+      {
+       "title": "Change Control Process",
+       "subtopics": []
+      },
+      {
+       "title": "Software Version Control",
+       "subtopics": []
+      },
+      {
+       "title": "An Overview of CASE Tools",
+       "subtopics": []
+      },
+      {
+       "title": "Estimation of Various Parameters such as Cost",
+       "subtopics": []
+      },
+      {
+       "title": "Efforts",
+       "subtopics": []
+      },
+      {
+       "title": "Schedule/Duration",
+       "subtopics": []
+      },
+      {
+       "title": "Constructive Cost Models (COCOMO)",
+       "subtopics": []
+      },
+      {
+       "title": "Resource Allocation Models",
+       "subtopics": []
+      },
+      {
+       "title": "Software Risk Analysis and Management",
+       "subtopics": []
+      },
+      {
+       "title": "Software Quality Assurance",
+       "subtopics": [
+        "SQA Plans",
+        "ISO 9000 models",
+        "SEI-CMM Model"
+       ]
+      }
+     ]
+    }
+   ],
+   "total_hours": 45,
+   "warnings": []
+  },
+  {
+   "code": "TCS 703",
+   "title": "Computer Networks II",
+   "semester": 7,
+   "department": "Computer Science and Engineering",
+   "category": "DC",
+   "pages": [
+    223,
+    225
+   ],
+   "course_outcomes": [
+    {
+     "code": "CO1",
+     "text": "Analyze Global and Centralized Routing protocols and utilize tools (such as NS2) to examine routing protocols of LS and DV types"
+    },
+    {
+     "code": "CO2",
+     "text": "Evaluate and select the appropriate technology to meet Data Link Layer requirements"
+    },
+    {
+     "code": "CO3",
+     "text": "Specify the devices, components and technologies to build a cost- effective LAN"
+    },
+    {
+     "code": "CO4",
+     "text": "Appreciate issues for supporting real time and multimedia traffic over public network"
+    },
+    {
+     "code": "CO5",
+     "text": "Identify the availability strategies in a Network Management System that will improve network availability and limit the effects of failures"
+    },
+    {
+     "code": "CO6",
+     "text": "Implement client server applications with TCP/UDP Socket Programming"
+    }
+   ],
+   "units": [
+    {
+     "number": 1,
+     "hours": 9,
+     "text": "Routing Algorithms: Introduction, global vs decentralized routing, The Link State(LS) Routing Algorithm, The Distance Vector (DV) Routing Algorithm, Hierarchical Routing, Routing in the Internet: RIP, OSPF, BGP; Introduction to Broadcast and Multicast Routing",
+     "topics": [
+      {
+       "title": "Routing Algorithms",
+       "subtopics": [
+        "Introduction",
+        "global vs decentralized routing",
+        "The Link State(LS) Routing Algorithm",
+        "The Distance Vector (DV) Routing Algorithm",
+        "Hierarchical Routing"
+       ]
+      },
+      {
+       "title": "Routing in the Internet",
+       "subtopics": [
+        "RIP",
+        "OSPF",
+        "BGP"
+       ]
+      },
+      {
+       "title": "Introduction to Broadcast and Multicast Routing",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "hours": 10,
+     "text": "Link Layer and Local Area Networks: Introduction to Link Layer and its services, Where Link Layer is implemented? Error detection and correction techniques: Parity checks, Checksum, CRC; Multiple Access protocols: Channel Partitioning, Random Access (Slotted Aloha, Aloha, CSMA), Taking Turns; Link Layer Addressing: MAC addresses, ARP, Ethernet, CSMA/CD, Ethernet Technologies, Link Layer Switches, Switches vs Routers, VLANS",
+     "topics": [
+      {
+       "title": "Link Layer and Local Area Networks",
+       "subtopics": [
+        "Introduction to Link Layer and its services",
+        "Where Link Layer is implemented?"
+       ]
+      },
+      {
+       "title": "Error detection and correction techniques",
+       "subtopics": [
+        "Parity checks",
+        "Checksum",
+        "CRC"
+       ]
+      },
+      {
+       "title": "Multiple Access protocols",
+       "subtopics": [
+        "Channel Partitioning",
+        "Random Access (Slotted Aloha, Aloha, CSMA)",
+        "Taking Turns"
+       ]
+      },
+      {
+       "title": "Link Layer Addressing",
+       "subtopics": [
+        "MAC addresses",
+        "ARP",
+        "Ethernet",
+        "CSMA/CD",
+        "Ethernet Technologies",
+        "Link Layer Switches",
+        "Switches vs Routers",
+        "VLANS"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "hours": 9,
+     "text": "Multimedia Networking: Introduction, Streaming Stored Audio and Video, Real Time Streaming Protocol (RTSP), Making the Best of the Best Effort Services, Protocols for Real Time Interactive Applications: RTP, RTCP, SIP, H.323; Providing multiple classes of service.",
+     "topics": [
+      {
+       "title": "Multimedia Networking",
+       "subtopics": [
+        "Introduction",
+        "Streaming Stored Audio and Video",
+        "Real Time Streaming Protocol (RTSP)",
+        "Making the Best of the Best Effort Services"
+       ]
+      },
+      {
+       "title": "Protocols for Real Time Interactive Applications",
+       "subtopics": [
+        "RTP",
+        "RTCP",
+        "SIP",
+        "H.323"
+       ]
+      },
+      {
+       "title": "Providing multiple classes of service",
+       "subtopics": []
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "hours": 9,
+     "text": "Network Management: What it is, Infrastructure of Network Management, The Internet standard Management Framework, SNMP",
+     "topics": [
+      {
+       "title": "Network Management",
+       "subtopics": [
+        "What it is",
+        "Infrastructure of Network Management",
+        "The Internet standard Management Framework",
+        "SNMP"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "hours": 8,
+     "text": "Network Programming: Sockets-Address structures, TCP sockets, creating sockets, bind, listen, accept, fork and exec function, close function; TCP client server: Echo server, normal startup, terminate and signal handling, server process termination, crashing and rebooting of server, host shutdown; Elementary UDP sockets: UDP echo server, lack of flow control with UDP",
+     "topics": [
+      {
+       "title": "Network Programming",
+       "subtopics": [
+        "Sockets-Address structures",
+        "TCP sockets",
+        "creating sockets",
+        "bind",
+        "listen",
+        "accept",
+        "fork and exec function",
+        "close function"
+       ]
+      },
+      {
+       "title": "TCP client server",
+       "subtopics": [
+        "Echo server",
+        "normal startup",
+        "terminate and signal handling",
+        "server process termination",
+        "crashing and rebooting of server",
+        "host shutdown"
+       ]
+      },
+      {
+       "title": "Elementary UDP sockets",
+       "subtopics": [
+        "UDP echo server",
+        "lack of flow control with UDP"
+       ]
+      }
+     ]
+    }
+   ],
+   "total_hours": 45,
+   "warnings": []
+  },
+  {
+   "code": "TCS 704",
+   "title": "Advanced Computer Architecture",
+   "semester": 7,
+   "department": "Computer Science and Engineering",
+   "category": "DC",
+   "pages": [
+    225,
+    227
+   ],
+   "course_outcomes": [
+    {
+     "code": "CO1",
+     "text": "Discuss the classes of computers, and new trends and developments in computer architecture."
+    },
+    {
+     "code": "CO2",
+     "text": "Study advanced performance enhancement techniques such as pipelines, dynamic scheduling branch predictions, caches."
+    },
+    {
+     "code": "CO3",
+     "text": "Compare and contrast the modern computer architectures such as RISC, Scalar, and multi-CPU systems."
+    },
+    {
+     "code": "CO4",
+     "text": "Critically evaluate the performance of different CPU architecture."
+    },
+    {
+     "code": "CO5",
+     "text": "Improve the performance of applications running on different CPU architectures."
+    },
+    {
+     "code": "CO6",
+     "text": "Develop applications for high performance computing systems"
+    }
+   ],
+   "units": [
+    {
+     "number": 1,
+     "hours": 9,
+     "text": "Basics of Computing: Computer Architecture and Technology Trends, Moore's Law and its Applications, Classification of parallel computers, Performance based Computing, The Myopic View of Computer Architecture, Trends in Technology, Energy, Power and Cost, Dependability, Processor Speed, Cost, Power Consumption, Fabrication Yield Performance Metrics and Evaluation: Measuring Performance, Benchmark Standards, Amdahl's Law, Lhadma's Law",
+     "topics": [
+      {
+       "title": "Basics of Computing",
+       "subtopics": [
+        "Computer Architecture and Technology Trends",
+        "Moore's Law and its Applications",
+        "Classification of parallel computers",
+        "Performance based Computing",
+        "The Myopic View of Computer Architecture",
+        "Trends in Technology",
+        "Energy",
+        "Power and Cost",
+        "Dependability",
+        "Processor Speed",
+        "Cost",
+        "Power Consumption"
+       ]
+      },
+      {
+       "title": "Fabrication Yield Performance Metrics and Evaluation",
+       "subtopics": [
+        "Measuring Performance",
+        "Benchmark Standards",
+        "Amdahl's Law",
+        "Lhadma's Law"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "hours": 10,
+     "text": "Memory Hierarchy Design: Basics of Memory Hierarchy, Coherence and locality properties, Cache memory organizations, Advanced Optimization of Cache Performance, Memory Technology and Optimization, Cache Coherence and Synchronization Mechanism, Virtual Memory, Virtual Machines",
+     "topics": [
+      {
+       "title": "Memory Hierarchy Design",
+       "subtopics": [
+        "Basics of Memory Hierarchy",
+        "Coherence and locality properties",
+        "Cache memory organizations",
+        "Advanced Optimization of Cache Performance",
+        "Memory Technology and Optimization",
+        "Cache Coherence and Synchronization Mechanism",
+        "Virtual Memory",
+        "Virtual Machines"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "hours": 10,
+     "text": "Pipeline: Linear pipeline processor, nonlinear pipeline processor, Instruction pipeline Design, Dynamic instruction scheduling, Branch Handling techniques, branch prediction, Arithmetic Pipeline Design Data, and resource Dependences, Performance Issues in Pipeline: Pipeline Hazards, Data Hazards Branch hazards and Resource Hazards",
+     "topics": [
+      {
+       "title": "Pipeline",
+       "subtopics": [
+        "Linear pipeline processor",
+        "nonlinear pipeline processor",
+        "Instruction pipeline Design",
+        "Dynamic instruction scheduling",
+        "Branch Handling techniques",
+        "branch prediction",
+        "Arithmetic Pipeline Design Data",
+        "and resource Dependences"
+       ]
+      },
+      {
+       "title": "Performance Issues in Pipeline",
+       "subtopics": [
+        "Pipeline Hazards",
+        "Data Hazards Branch hazards and Resource Hazards"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "hours": 8,
+     "text": "Instruction Level Parallelism: Concepts and Challenges, Basic Compiler techniques for exploiting ILP, Reducing the branch penalty with advanced branch predictions, overcoming data hazards with dynamic scheduling, exploiting ILP using multiple issues state scheduling",
+     "topics": [
+      {
+       "title": "Instruction Level Parallelism",
+       "subtopics": [
+        "Concepts and Challenges",
+        "Basic Compiler techniques for exploiting ILP",
+        "Reducing the branch penalty with advanced branch predictions",
+        "overcoming data hazards with dynamic scheduling",
+        "exploiting ILP using multiple issues state scheduling"
+       ]
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "hours": 8,
+     "text": "Multiprocessor architecture: Taxonomy of parallel architectures. Centralized shared-memory, distributed shared-memory architecture, Message passing vs Shared Memory Thread and Process Level Parallel Architecture: Instruction Level Data Parallel Architecture, SIMD Architecture, Fine Grained and Coarse-Grained Associative and Neural Architecture, Data Parallel Pipelined and Systolic Architectures, Vector Architectures",
+     "topics": [
+      {
+       "title": "Multiprocessor architecture",
+       "subtopics": [
+        "Taxonomy of parallel architectures"
+       ]
+      },
+      {
+       "title": "Centralized shared-memory",
+       "subtopics": []
+      },
+      {
+       "title": "distributed shared-memory architecture",
+       "subtopics": []
+      },
+      {
+       "title": "Message passing vs Shared Memory Thread and Process Level Parallel Architecture: Instruction Level Data Parallel Architecture",
+       "subtopics": []
+      },
+      {
+       "title": "SIMD Architecture",
+       "subtopics": []
+      },
+      {
+       "title": "Fine Grained and Coarse-Grained Associative and Neural Architecture",
+       "subtopics": []
+      },
+      {
+       "title": "Data Parallel Pipelined and Systolic Architectures",
+       "subtopics": []
+      },
+      {
+       "title": "Vector Architectures",
+       "subtopics": []
+      }
+     ]
+    }
+   ],
+   "total_hours": 45,
+   "warnings": []
+  }
+ ]
+}

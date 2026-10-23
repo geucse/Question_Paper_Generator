@@ -1,0 +1,42 @@
+{
+  "name": "exam-portal-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "migrate": "node src/migrate.js",
+    "seed": "node src/seed.js",
+    "start": "node src/server.js",
+    "dev": "node src/server.js",
+    "test:unit": "node --test test-generator.mjs test-generator-v2.mjs test-question-types.mjs test-paper-policy.mjs test-canonical.mjs test-validator-eligibility.mjs test-paper-validation-view.mjs test-paper-sections.mjs test-paper-output.mjs test-paper-template.mjs test-syllabus-extract.mjs test-demo-scenarios.mjs test-auth-security.mjs test-runtime-config.mjs test-errors.mjs test-antivirus.mjs test-redis-store.mjs test-startup.mjs test-syllabus-diff.mjs",
+    "smoke:pivot": "node smoketest-pivot.mjs",
+    "test:routes": "node --import ./test/register.mjs --test test/lifecycle.test.mjs test/review-batches.test.mjs test/resubmit.test.mjs test/examinations.test.mjs test/other.test.mjs test/syllabus-upload.test.mjs test/academic-scope.test.mjs test/idor.test.mjs test/accounts-auth.test.mjs test/infra.test.mjs test/question-output.test.mjs test/syllabus.test.mjs",
+    "test": "npm run test:unit && npm run test:routes",
+    "test:policy": "node --test test-paper-policy.mjs",
+    "seed:demo": "node src/seed-demo.js",
+    "docs:demo": "node scripts/generate-demo-docs.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.117.1",
+    "argon2": "^0.41.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-async-errors": "^3.1.1",
+    "express-rate-limit": "^8.6.2",
+    "file-type": "^22.2.0",
+    "helmet": "^8.3.0",
+    "ioredis": "^5.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.2.0",
+    "nodemailer": "^10.2.0",
+    "otplib": "^12.0.1",
+    "pdfkit": "^0.15.1",
+    "pg": "^8.23.0",
+    "rate-limit-redis": "^4.2.0",
+    "validator": "^13.15.35",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

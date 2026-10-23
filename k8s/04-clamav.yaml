@@ -1,0 +1,57 @@
+# Same caveat as docker-compose.prod.yml: this image fetches its own virus
+# definitions on startup and needs outbound internet access to
+# database.clamav.net. In a locked-down cluster network policy, you'll need
+# to explicitly allow that egress or this pod will never become ready.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clamav
+  namespace: exam-portal
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: clamav }
+  template:
+    metadata:
+      labels: { app: clamav }
+    spec:
+      containers:
+        - name: clamav
+          image: clamav/clamav:1.3
+          ports: [{ containerPort: 3310 }]
+          resources:
+            requests: { memory: "1Gi", cpu: "250m" }
+            limits: { memory: "2Gi", cpu: "1" }
+          readinessProbe:
+            tcpSocket: { port: 3310 }
+            initialDelaySeconds: 90 # first-boot signature download takes a while
+            periodSeconds: 15
+            failureThreshold: 10
+          livenessProbe:
+            tcpSocket: { port: 3310 }
+            initialDelaySeconds: 120
+            periodSeconds: 30
+          volumeMounts:
+            - name: clamav-data
+              mountPath: /var/lib/clamav
+      volumes:
+        - name: clamav-data
+          persistentVolumeClaim: { claimName: clamav-data }
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: clamav-data
+  namespace: exam-portal
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources: { requests: { storage: 2Gi } }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clamav
+  namespace: exam-portal
+spec:
+  selector: { app: clamav }
+  ports: [{ port: 3310, targetPort: 3310 }]

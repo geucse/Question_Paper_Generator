@@ -1,0 +1,69 @@
+# Environment files
+.env
+.env.*
+!.env.example
+!.env.prod.example
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Dependencies
+node_modules/
+# package-lock.json is committed on purpose: CI uses `npm ci`, which needs it,
+# and it pins exact dependency versions for reproducible installs.
+
+# Build artifacts
+dist/
+dist-e2e/
+build/
+.next/
+out/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Uploads and generated files
+uploads/
+temp/
+tmp/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets and sensitive data
+secrets/
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Backup files
+*.backup
+*.bak
+
+# OS and tooling
+.DS_Store
+Thumbs.db
+coverage/
+playwright-report/
+test-results/
+*.tgz
+
+# Local backend data (never commit)
+backend/uploads/
+backend/.env.testdb

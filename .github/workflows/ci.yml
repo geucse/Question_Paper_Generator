@@ -1,0 +1,201 @@
+name: CI
+
+# Mirrors run-checks.sh (keep the two in step), on a fresh Postgres service instead of the local throwaway container:
+#   backend:  npm ci -> audit -> unit + route tests -> migrate (twice) -> schema check -> seed -> start server
+#             -> health + readiness -> pivot smoke test (spec §40) -> no unmasked codes in the server log
+#   frontend: npm ci -> audit -> lint (warnings fail) -> build
+#   e2e:      Playwright browser checks of the UI against a mocked API (frontend/e2e/mock-ui.cjs)
+#   docker:   build both production images
+# Only the copy-of-real-data upgrade (run-checks.sh steps 13-16) is local-only: it needs a dump of real data.
+# Validated with actionlint and run step-for-step locally; it has not been executed on GitHub's runners yet, so the
+# first real run is the final check.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: examportal
+          POSTGRES_PASSWORD: devpassword
+          POSTGRES_DB: examportal
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U examportal -d examportal"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    # Everything the migrate, seed, server and smoke steps read, set once so every step sees the same values
+    # (the smoke test signs in through the real server and writes OTP hashes into the same database).
+    # The tests (npm test) set their own hermetic environment in test/env.mjs and are unaffected by these.
+    # The server settings are the throwaway development-mode ones run-checks.sh uses: codes go to the server log
+    # masked, no Redis (per-process limits, chosen explicitly), limits raised for the scripted smoke test, and ClamAV
+    # pointed at a port where the smoke test starts a fake clamd later (uploads are quarantined until then).
+    # Production refuses every one of these dev-only settings.
+    env:
+      DATABASE_URL: postgres://examportal:devpassword@localhost:5432/examportal
+      PGHOST: localhost
+      PGPORT: "5432"
+      PGUSER: examportal
+      PGPASSWORD: devpassword
+      PGDATABASE: examportal
+      JWT_SECRET: ci-only-jwt-secret-not-for-production-0123456789abcdef
+      PORT: "4000"
+      AUTH_RATE_MAX: "500"
+      GLOBAL_RATE_MAX: "5000"
+      RATE_LIMIT_STORE: memory
+      OTP_DELIVERY_PROVIDER: console
+      DEV_OTP_CONSOLE: masked
+      CLAMD_HOST: 127.0.0.1
+      CLAMD_PORT: "3399"
+      CLAMD_SOCKET: ""
+      ATTACHMENT_RESCAN_INTERVAL_MS: "0"
+      SMOKE_FAKE_CLAMD_PORT: "3399"
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install (lockfile only)
+        run: npm ci
+
+      - name: Audit production dependencies (high and critical fail)
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Unit and route tests (no database needed)
+        run: npm test
+
+      - name: Demo dataset check (no database needed)
+        run: npm run seed:demo -- --check
+
+      - name: Migrate twice (the second run must be a no-op)
+        run: npm run migrate && npm run migrate
+
+      - name: Schema check
+        run: psql -v ON_ERROR_STOP=1 -f test/schema-check.sql
+
+      - name: Seed demo data
+        run: npm run seed
+
+      - name: Start server and wait for health
+        run: |
+          nohup node src/server.js > server.log 2>&1 &
+          echo $! > server.pid
+          for _ in $(seq 1 30); do
+            node -e "fetch('http://localhost:4000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))" && exit 0
+            sleep 1
+          done
+          echo "server did not become healthy"; cat server.log; exit 1
+
+      - name: Readiness (development mode answers 200 when ready or degraded)
+        run: node -e "fetch('http://localhost:4000/api/health/ready').then(async r=>{console.log('READINESS', r.status, await r.text()); process.exit(r.status===200?0:1)}).catch(e=>{console.log('READINESS unreachable'); process.exit(1)})"
+
+      - name: Pivot smoke test (spec §40)
+        run: npm run smoke:pivot
+
+      - name: Demo seed through the API, twice (the second run must change nothing)
+        run: npm run seed:demo && npm run seed:demo
+
+      - name: No unmasked codes in the server log
+        run: |
+          n=$(grep -cE "code=[0-9]{6}([^0-9*]|$)" server.log || true)
+          echo "unmasked codes: $n"; test "$n" = 0
+
+      - name: Stop server
+        if: always()
+        run: if [ -f server.pid ]; then kill "$(cat server.pid)" 2> /dev/null || true; fi
+
+      - name: Server log on failure
+        if: failure()
+        run: cat server.log || true
+
+  frontend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install (lockfile only)
+        run: npm ci
+
+      - name: Audit production dependencies (high and critical fail)
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Lint (oxlint --deny-warnings; any warning fails)
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install (lockfile only)
+        run: npm ci
+
+      - name: Install Playwright chromium (with its system libraries)
+        run: npx playwright install --with-deps chromium
+
+      - name: Browser checks against a mocked API
+        run: npm run test:e2e
+
+  docker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build backend image
+        run: docker build -t exam-portal-backend:ci backend
+
+      - name: Build frontend image
+        run: docker build -t exam-portal-frontend:ci frontend
+
+      - name: Images run as non-root users
+        run: |
+          test "$(docker image inspect -f '{{.Config.User}}' exam-portal-backend:ci)" = node
+          test "$(docker image inspect -f '{{.Config.User}}' exam-portal-frontend:ci)" != ""
+          test "$(docker image inspect -f '{{.Config.User}}' exam-portal-frontend:ci)" != root

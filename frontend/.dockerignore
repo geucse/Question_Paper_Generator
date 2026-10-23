@@ -1,0 +1,18 @@
+# Keep the build context free of local installs, secrets, build output and e2e artifacts.
+node_modules
+npm-debug.log*
+.env
+.env.*
+dist
+dist-e2e
+e2e
+test-results
+playwright-report
+uploads
+logs
+*.log
+*.db
+*.sqlite
+*.sqlite3
+Dockerfile
+.dockerignore

@@ -1,0 +1,170 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: exam-portal
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app: backend }
+  template:
+    metadata:
+      labels: { app: backend }
+    spec:
+      # The image runs as the unprivileged `node` user (uid 1000); fsGroup makes the uploads volume writable for it.
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      containers:
+        - name: backend
+          image: exam-portal-backend:latest # replace with your built/pushed image tag
+          command: ["sh", "-c"]
+          args:
+            - |
+              export DATABASE_URL=postgres://$DB_USER:$DB_PASSWORD@$DB_HOST:5432/$DB_NAME
+              if [ -n "$APP_DB_PASSWORD" ]; then
+                export APP_DATABASE_URL=postgres://${APP_DB_USER:-examportal_app}:$APP_DB_PASSWORD@$DB_HOST:5432/$DB_NAME
+              fi
+              node src/server.js
+          ports: [{ containerPort: 4000 }]
+          env:
+            - name: DB_USER
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: DB_USER } }
+            - name: DB_HOST
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: DB_HOST } }
+            - name: DB_NAME
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: DB_NAME } }
+            - name: DB_PASSWORD
+              valueFrom: { secretKeyRef: { name: exam-portal-secrets, key: DB_PASSWORD } }
+            # Optional hardening (see backend/deploy/create-app-role.sql):
+            # if APP_DB_PASSWORD is present in the secret, the app connects
+            # as the restricted examportal_app role instead of the
+            # schema-owning DB_USER role. Omit this secret key entirely to
+            # skip — the shell logic above leaves APP_DATABASE_URL unset,
+            # and db.js already falls back to DATABASE_URL in that case.
+            - name: APP_DB_USER
+              valueFrom: { secretKeyRef: { name: exam-portal-secrets, key: APP_DB_USER, optional: true } }
+            - name: APP_DB_PASSWORD
+              valueFrom: { secretKeyRef: { name: exam-portal-secrets, key: APP_DB_PASSWORD, optional: true } }
+            - name: REDIS_URL
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: REDIS_URL } }
+            - name: JWT_SECRET
+              valueFrom: { secretKeyRef: { name: exam-portal-secrets, key: JWT_SECRET } }
+            - name: ANTHROPIC_API_KEY
+              valueFrom: { secretKeyRef: { name: exam-portal-secrets, key: ANTHROPIC_API_KEY, optional: true } }
+            - name: RATE_LIMIT_STORE
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: RATE_LIMIT_STORE } }
+            - name: CLAMD_HOST
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: CLAMD_HOST } }
+            - name: CLAMD_PORT
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: CLAMD_PORT } }
+            - name: NODE_ENV
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: NODE_ENV } }
+            - name: CORS_ALLOWED_ORIGINS
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: CORS_ALLOWED_ORIGINS } }
+            - name: TRUST_PROXY
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: TRUST_PROXY } }
+            - name: OTP_DELIVERY_PROVIDER
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: OTP_DELIVERY_PROVIDER } }
+            - name: SMTP_HOST
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: SMTP_HOST } }
+            - name: SMTP_PORT
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: SMTP_PORT } }
+            - name: SMTP_SECURE
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: SMTP_SECURE } }
+            - name: SMTP_FROM
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: SMTP_FROM } }
+            - name: PORTAL_URL
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: PORTAL_URL } }
+            - name: ACCOUNT_INVITE_TTL_HOURS
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: ACCOUNT_INVITE_TTL_HOURS } }
+            - name: ATTACHMENT_RESCAN_INTERVAL_MS
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: ATTACHMENT_RESCAN_INTERVAL_MS } }
+            - name: AUTO_BLOCK_MINUTES
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: AUTO_BLOCK_MINUTES } }
+            # Only for a deliberate TOTP key rotation (see 02-configmap.yaml); absent otherwise.
+            - name: TOTP_KEY_ROTATE
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: TOTP_KEY_ROTATE, optional: true } }
+            # Not optional: a missing key fails the pod, the same way the backend refuses to start without it.
+            - name: TOTP_ENCRYPTION_KEY
+              valueFrom: { secretKeyRef: { name: exam-portal-secrets, key: TOTP_ENCRYPTION_KEY } }
+            - name: SMTP_USER
+              valueFrom: { secretKeyRef: { name: exam-portal-secrets, key: SMTP_USER, optional: true } }
+            - name: SMTP_PASS
+              valueFrom: { secretKeyRef: { name: exam-portal-secrets, key: SMTP_PASS, optional: true } }
+            - name: PORT
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: PORT } }
+            - name: INSTITUTION_NAME
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: INSTITUTION_NAME } }
+            - name: PAPER_GENERAL_INSTRUCTIONS
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: PAPER_GENERAL_INSTRUCTIONS, optional: true } }
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities: { drop: ["ALL"] }
+          resources:
+            requests: { memory: "256Mi", cpu: "200m" }
+            limits: { memory: "512Mi", cpu: "500m" }
+          # Liveness is process-only, so a database or Redis outage never restarts pods; readiness takes the pod out
+          # of service while a required dependency (database, Redis, SMTP config, TOTP key) is missing. A ClamAV
+          # outage reports degraded (still ready): uploads stay quarantined until rescanned clean.
+          startupProbe:
+            httpGet: { path: /api/health/live, port: 4000 }
+            periodSeconds: 2
+            failureThreshold: 30
+          readinessProbe:
+            httpGet: { path: /api/health/ready, port: 4000 }
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet: { path: /api/health/live, port: 4000 }
+            periodSeconds: 20
+            timeoutSeconds: 2
+          volumeMounts:
+            - name: uploads
+              mountPath: /app/uploads
+      volumes:
+        - name: uploads
+          persistentVolumeClaim: { claimName: backend-uploads }
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: backend-uploads
+  namespace: exam-portal
+spec:
+  # ReadWriteMany so any of the backend replicas can serve a previously
+  # uploaded attachment regardless of which replica handled the upload —
+  # requires a storage class that supports it (e.g. EFS/Filestore/NFS).
+  # If your cluster only offers ReadWriteOnce, set replicas: 1 above instead.
+  accessModes: ["ReadWriteMany"]
+  resources: { requests: { storage: 5Gi } }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: exam-portal
+spec:
+  selector: { app: backend }
+  ports: [{ port: 4000, targetPort: 4000 }]
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: backend-hpa
+  namespace: exam-portal
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: backend
+  minReplicas: 2
+  maxReplicas: 6
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target: { type: Utilization, averageUtilization: 70 }

@@ -1,0 +1,39 @@
+# Shared rate-limit state across backend replicas (backend/src/redis.js). Required in
+# production: while it is down (also when a backend pod starts before it) rate-limited
+# requests get 503 and /api/health/ready reports not-ready (no silent per-pod fallback, no
+# CrashLoopBackOff: the backend reconnects by itself).
+# No persistent volume: losing rate-limit counters on a restart is an acceptable trade-off
+# for the simplicity of not managing Redis storage.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: exam-portal
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: redis }
+  template:
+    metadata:
+      labels: { app: redis }
+    spec:
+      containers:
+        - name: redis
+          image: redis:7-alpine
+          ports: [{ containerPort: 6379 }]
+          resources:
+            requests: { memory: "64Mi", cpu: "50m" }
+            limits: { memory: "128Mi", cpu: "200m" }
+          readinessProbe:
+            exec: { command: ["redis-cli", "ping"] }
+            initialDelaySeconds: 3
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: exam-portal
+spec:
+  selector: { app: redis }
+  ports: [{ port: 6379, targetPort: 6379 }]

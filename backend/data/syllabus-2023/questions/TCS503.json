@@ -1,0 +1,347 @@
+{
+ "code": "TCS 503",
+ "source_corrections": [
+  {
+   "unit": 5,
+   "from": "Lock 9Management",
+   "to": "Lock Management",
+   "reason": "The unit's contact hours (9) are printed inside the text in the source PDF; corrected during HOD verification."
+  }
+ ],
+ "verified_topics": {
+  "1": [
+   "Advantages of using DBMS approach",
+   "Data models, schemas, and instances",
+   "Three-schema architecture and data independence",
+   "Centralized and client-server architectures"
+  ],
+  "2": [
+   "Entity Types, Entity Sets, Attributes and Keys",
+   "Roles and Structural Constraints",
+   "Weak Entity Types",
+   "Relationship types of degree higher than two"
+  ],
+  "3": [
+   "Binary Relational Operations: JOIN and DIVISION",
+   "ER- to-Relational Mapping",
+   "More complex SQL Queries",
+   "Specifying constraints as Assertion and Trigger"
+  ],
+  "4": [
+   "Functional Dependencies",
+   "General Definitions of Second and Third Normal Forms",
+   "Boyce-Codd Normal Form",
+   "Properties of Relational Decompositions"
+  ],
+  "5": [
+   "The ACID Properties",
+   "2PL, Serializability and Recoverability",
+   "Lock Management",
+   "Checkpointing"
+  ]
+ },
+ "questions": [
+  {
+   "u": 1,
+   "t": "Three-schema architecture and data independence",
+   "type": "short_answer",
+   "co": [
+    "CO1",
+    "CO2"
+   ],
+   "bloom": "understand",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Explain the three-schema architecture and distinguish logical data independence from physical data independence with one example of each.",
+   "model": "External (user views), conceptual (whole logical schema) and internal (storage) levels with mappings between them. Physical independence: adding an index or changing file organisation does not change the conceptual schema. Logical independence: adding a column to a table does not change existing external views."
+  },
+  {
+   "u": 1,
+   "t": "Advantages of using DBMS approach",
+   "type": "mcq",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "remember",
+   "diff": "easy",
+   "marks": 1,
+   "q": "Which of the following is NOT an advantage of the DBMS approach over a file system?",
+   "opts": [
+    "Controlled redundancy",
+    "Concurrent access with consistency",
+    "Lower cost and overhead for every small application",
+    "Backup and recovery"
+   ],
+   "ans": "C",
+   "model": "A DBMS adds cost and overhead; for very small, simple applications a file system can be cheaper."
+  },
+  {
+   "u": 1,
+   "t": "Data models, schemas, and instances",
+   "type": "true_false",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 1,
+   "q": "True or False: A database schema changes frequently, while the database instance rarely changes.",
+   "ans": "FALSE",
+   "model": "False. The schema (intension) is stable; the instance (extension, the data at a moment) changes with every update."
+  },
+  {
+   "u": 1,
+   "t": "Centralized and client-server architectures",
+   "type": "assertion_reason",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "understand",
+   "diff": "medium",
+   "marks": 2,
+   "q": "Read the assertion and reason about centralized and client-server architectures and choose the correct option.",
+   "assertion": "In a three-tier client-server architecture, the client does not connect directly to the database server.",
+   "reason": "An application server between them runs the business logic and accesses the database on the client's behalf.",
+   "ans": "A",
+   "model": "Both true and R explains A."
+  },
+  {
+   "u": 2,
+   "t": "Weak Entity Types",
+   "type": "short_answer",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 3,
+   "q": "What is a weak entity type? Explain its identifying relationship and partial key using DEPENDENT of EMPLOYEE as an example.",
+   "model": "A weak entity has no key of its own; it is identified through an owner entity via an identifying relationship (total participation). DEPENDENT is identified by the owner EMPLOYEE's SSN plus its partial key Dependent_name."
+  },
+  {
+   "u": 2,
+   "t": "Roles and Structural Constraints",
+   "type": "mcq",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 2,
+   "q": "Every employee works in exactly one department and a department can have many employees. Which description of WORKS_FOR is correct?",
+   "opts": [
+    "1:1, partial participation of EMPLOYEE",
+    "N:1 (EMPLOYEE:DEPARTMENT), total participation of EMPLOYEE",
+    "M:N, total participation of both",
+    "1:N (EMPLOYEE:DEPARTMENT), partial participation of EMPLOYEE"
+   ],
+   "ans": "B",
+   "model": "Many employees to one department (N:1); every employee must participate (total)."
+  },
+  {
+   "u": 2,
+   "t": "Entity Types, Entity Sets, Attributes and Keys",
+   "type": "case_study",
+   "co": [
+    "CO5",
+    "CO6"
+   ],
+   "bloom": "create",
+   "diff": "hard",
+   "marks": 10,
+   "q": "Design an ER diagram for the case, identifying entity types, attributes, keys, relationships, cardinality ratios and participation constraints. State any assumptions.",
+   "case": "A hospital records patients (ID, name, date of birth, phone numbers), doctors (ID, name, specialisation) and wards (number, capacity). A patient is admitted to one ward at a time, may be treated by several doctors, and each doctor treats many patients; each treatment has a date and a diagnosis.",
+   "model": "Entities PATIENT (PatientID key, Name, DOB, multivalued Phone), DOCTOR (DoctorID key, Name, Specialisation), WARD (WardNo key, Capacity). ADMITTED_TO PATIENT N:1 WARD (partial for PATIENT if out-patients exist). TREATS DOCTOR M:N PATIENT with relationship attributes Date and Diagnosis."
+  },
+  {
+   "u": 2,
+   "t": "Relationship types of degree higher than two",
+   "type": "short_answer",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "analyze",
+   "diff": "medium",
+   "marks": 4,
+   "q": "A ternary relationship SUPPLY(Supplier, Part, Project) is replaced by three binary relationships SUPPLIES(Supplier, Part), USES(Project, Part) and CAN_SUPPLY(Supplier, Project). Explain, with an example, why information can be lost.",
+   "model": "The binaries record pairs only. If s1 supplies p1 to j2 and p2 to j1, the binaries also suggest s1 supplies p1 to j1, which may be false: the ternary fact (s, p, j) cannot be reconstructed from the three pairs."
+  },
+  {
+   "u": 3,
+   "t": "More complex SQL Queries",
+   "type": "programming",
+   "co": [
+    "CO3"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 6,
+   "q": "Given EMPLOYEE(eid, name, dept_id, salary) and DEPARTMENT(dept_id, dname), write SQL to list (a) the names of departments whose average salary exceeds 50000 and (b) the employees who earn more than the average salary of their own department.",
+   "lang": "SQL",
+   "model": "(a) SELECT d.dname FROM DEPARTMENT d JOIN EMPLOYEE e ON e.dept_id = d.dept_id GROUP BY d.dname HAVING AVG(e.salary) > 50000;\n(b) SELECT e.name FROM EMPLOYEE e WHERE e.salary > (SELECT AVG(x.salary) FROM EMPLOYEE x WHERE x.dept_id = e.dept_id);"
+  },
+  {
+   "u": 3,
+   "t": "Binary Relational Operations: JOIN and DIVISION",
+   "type": "short_answer",
+   "co": [
+    "CO3"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Using TAKES(sid, cid) and COURSE(cid, title), write a relational algebra expression for the IDs of students who have taken every course, and explain the division operator used.",
+   "model": "TAKES / pi_cid(COURSE). Division returns the sid values that are paired in TAKES with every cid in pi_cid(COURSE)."
+  },
+  {
+   "u": 3,
+   "t": "ER- to-Relational Mapping",
+   "type": "short_answer",
+   "co": [
+    "CO2",
+    "CO5"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Map to relations: a weak entity DEPENDENT (partial key name) owned by EMPLOYEE (key ssn), and an M:N relationship WORKS_ON between EMPLOYEE and PROJECT (key pno) with attribute hours. Give primary and foreign keys.",
+   "model": "DEPENDENT(ssn, name, ...), PK (ssn, name), FK ssn -> EMPLOYEE. WORKS_ON(ssn, pno, hours), PK (ssn, pno), FKs ssn -> EMPLOYEE and pno -> PROJECT."
+  },
+  {
+   "u": 3,
+   "t": "Specifying constraints as Assertion and Trigger",
+   "type": "programming",
+   "co": [
+    "CO4",
+    "CO3"
+   ],
+   "bloom": "apply",
+   "diff": "hard",
+   "marks": 6,
+   "q": "Write an SQL trigger on EMPLOYEE(eid, name, salary) that rejects any update reducing an employee's salary, and explain why this rule is better enforced in the database than in each application.",
+   "lang": "SQL",
+   "model": "CREATE TRIGGER no_salary_cut BEFORE UPDATE OF salary ON EMPLOYEE FOR EACH ROW WHEN (NEW.salary < OLD.salary) BEGIN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Salary cannot be reduced'; END; (syntax varies by DBMS). The database enforces it for every application and ad hoc update, so the integrity rule cannot be bypassed."
+  },
+  {
+   "u": 4,
+   "t": "Functional Dependencies",
+   "type": "numerical",
+   "co": [
+    "CO2",
+    "CO5"
+   ],
+   "bloom": "analyze",
+   "diff": "hard",
+   "marks": 4,
+   "q": "R(A, B, C, D, E) has functional dependencies A -> B, B -> C, CD -> E, E -> A. How many candidate keys does R have?",
+   "val": 4,
+   "tol": 0,
+   "model": "D is on no right-hand side, so every key contains D; D alone gives only D. AD, BD, CD and ED each determine all attributes, and no proper subset does: 4 candidate keys."
+  },
+  {
+   "u": 4,
+   "t": "Boyce-Codd Normal Form",
+   "type": "short_answer",
+   "co": [
+    "CO5"
+   ],
+   "bloom": "analyze",
+   "diff": "hard",
+   "marks": 5,
+   "q": "R(Student, Course, Instructor) has FDs {Student, Course} -> Instructor and Instructor -> Course. Show that R is in 3NF but not in BCNF, and give a BCNF decomposition. What is lost?",
+   "model": "Keys: {Student, Course} and {Student, Instructor}. Instructor -> Course has a non-superkey determinant, violating BCNF, but Course is prime, so 3NF holds. Decompose into (Instructor, Course) and (Student, Instructor): lossless, but {Student, Course} -> Instructor is no longer preserved."
+  },
+  {
+   "u": 4,
+   "t": "General Definitions of Second and Third Normal Forms",
+   "type": "mcq",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "remember",
+   "diff": "easy",
+   "marks": 1,
+   "q": "A relation in which a non-prime attribute depends on only part of a composite candidate key violates which normal form?",
+   "opts": [
+    "First normal form",
+    "Second normal form",
+    "Boyce-Codd normal form only",
+    "Fourth normal form"
+   ],
+   "ans": "B",
+   "model": "A partial dependency of a non-prime attribute violates 2NF."
+  },
+  {
+   "u": 4,
+   "t": "Properties of Relational Decompositions",
+   "type": "short_answer",
+   "co": [
+    "CO5"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 4,
+   "q": "R(A, B, C) with F = {A -> B} is decomposed into R1(A, B) and R2(A, C). Is the decomposition lossless? Is it dependency preserving? Justify both.",
+   "model": "Lossless: R1 intersect R2 = {A}, and A -> B, so A is a key of R1. Dependency preserving: A -> B lies within R1."
+  },
+  {
+   "u": 5,
+   "t": "The ACID Properties",
+   "type": "fill_blank",
+   "co": [
+    "CO4"
+   ],
+   "bloom": "remember",
+   "diff": "easy",
+   "marks": 2,
+   "q": "The ___ property ensures that either all operations of a transaction are reflected in the database or none are, while ___ ensures that the effects of a committed transaction survive system crashes.",
+   "answers": [
+    "atomicity",
+    "durability"
+   ],
+   "model": "Atomicity and durability."
+  },
+  {
+   "u": 5,
+   "t": "2PL, Serializability and Recoverability",
+   "type": "short_answer",
+   "co": [
+    "CO4"
+   ],
+   "bloom": "analyze",
+   "diff": "medium",
+   "marks": 5,
+   "q": "Is the schedule r1(X), w2(X), w1(X) conflict serializable? Draw the precedence graph and justify your answer.",
+   "model": "r1(X) before w2(X) gives T1 -> T2; w2(X) before w1(X) gives T2 -> T1. The precedence graph has a cycle, so the schedule is not conflict serializable."
+  },
+  {
+   "u": 5,
+   "t": "Lock Management",
+   "type": "assertion_reason",
+   "co": [
+    "CO4"
+   ],
+   "bloom": "understand",
+   "diff": "medium",
+   "marks": 2,
+   "q": "Read the assertion and reason about lock Management and choose the correct option.",
+   "assertion": "Basic two-phase locking guarantees conflict-serializable schedules.",
+   "reason": "Under two-phase locking, a transaction does not release any lock before it has acquired all the locks it needs.",
+   "ans": "A",
+   "model": "Both true and R explains A: the lock point orders the transactions."
+  },
+  {
+   "u": 5,
+   "t": "Checkpointing",
+   "type": "short_answer",
+   "co": [
+    "CO4"
+   ],
+   "bloom": "understand",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Explain how checkpoints in the log reduce the work of recovering from a system crash.",
+   "model": "At a checkpoint the DBMS forces log records and dirty pages to disk and writes a checkpoint record listing active transactions. After a crash, recovery starts from the last checkpoint: committed transactions before it need no redo, and only the log after it (plus active transactions) is scanned."
+  }
+ ]
+}

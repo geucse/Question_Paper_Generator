@@ -1,0 +1,340 @@
+{
+ "code": "TCS 408",
+ "verified_topics": {
+  "1": [
+   "Concepts of Java Virtual machine (JVM)",
+   "Wrapper classes",
+   "Scanner Class",
+   "constructors",
+   "String Handling in java"
+  ],
+  "2": [
+   "overloading and overriding",
+   "abstract and final classes",
+   "Defining Interfaces",
+   "Access protection"
+  ],
+  "3": [
+   "Checked and uncheced Exceptions",
+   "throw statement, throws clause",
+   "Producer/ consumer problems",
+   "Byte and Character Streams"
+  ],
+  "4": [
+   "Generics",
+   "ArrayList, LinkedList HashSet and ArrayDeque classes",
+   "Swings advantages over AWT"
+  ],
+  "5": [
+   "Event delegation model",
+   "JBDC drivers(Type1 Driver,Type4 Driver)",
+   "Creating and executing SQL statements"
+  ]
+ },
+ "questions": [
+  {
+   "u": 1,
+   "t": "Concepts of Java Virtual machine (JVM)",
+   "type": "short_answer",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 3,
+   "q": "Explain how the Java Virtual Machine makes compiled Java programs platform independent.",
+   "model": "javac compiles source to platform-neutral bytecode (.class). Each platform has its own JVM that loads, verifies and interprets/JIT-compiles the bytecode, so the same .class file runs anywhere a JVM exists."
+  },
+  {
+   "u": 1,
+   "t": "String Handling in java",
+   "type": "mcq",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "analyze",
+   "diff": "medium",
+   "marks": 2,
+   "q": "What does this code print? String s1 = \"java\"; String s2 = new String(\"java\"); System.out.println((s1 == s2) + \" \" + s1.equals(s2));",
+   "opts": [
+    "true true",
+    "false true",
+    "true false",
+    "false false"
+   ],
+   "ans": "B",
+   "model": "== compares references (s2 is a new object), equals() compares contents: false true."
+  },
+  {
+   "u": 1,
+   "t": "Scanner Class",
+   "type": "short_answer",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "analyze",
+   "diff": "medium",
+   "marks": 3,
+   "q": "A program calls sc.nextInt() to read an age and then sc.nextLine() to read a name, but the name is always empty. Explain the cause and give a fix.",
+   "model": "nextInt() reads the number but leaves the newline in the buffer; the next nextLine() returns that empty remainder. Fix: call sc.nextLine() once after nextInt() to consume the newline, or read the age with Integer.parseInt(sc.nextLine())."
+  },
+  {
+   "u": 1,
+   "t": "constructors",
+   "type": "programming",
+   "co": [
+    "CO1",
+    "CO2"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 6,
+   "q": "Write a Java class BankAccount with fields accountNumber and balance, a no-argument constructor that sets balance to 0, an overloaded constructor taking both values, and methods deposit() and withdraw() that reject invalid amounts.",
+   "lang": "Java",
+   "model": "public class BankAccount {\n    private String accountNumber;\n    private double balance;\n    public BankAccount() { this(\"UNASSIGNED\", 0); }\n    public BankAccount(String no, double bal) { accountNumber = no; balance = bal; }\n    public void deposit(double amt) { if (amt <= 0) throw new IllegalArgumentException(\"amount\"); balance += amt; }\n    public void withdraw(double amt) { if (amt <= 0 || amt > balance) throw new IllegalArgumentException(\"amount\"); balance -= amt; }\n}"
+  },
+  {
+   "u": 1,
+   "t": "Wrapper classes",
+   "type": "fill_blank",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "remember",
+   "diff": "easy",
+   "marks": 2,
+   "q": "In Java, the automatic conversion of an int into an Integer object is called ___, and the conversion of an Integer back to int is called ___.",
+   "answers": [
+    "autoboxing",
+    "unboxing"
+   ],
+   "model": "Autoboxing and unboxing."
+  },
+  {
+   "u": 2,
+   "t": "overloading and overriding",
+   "type": "mcq",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 1,
+   "q": "Which of the following is resolved at run time in Java?",
+   "opts": [
+    "Method overloading",
+    "Method overriding",
+    "Constructor overloading",
+    "Static method calls"
+   ],
+   "ans": "B",
+   "model": "Overriding is dynamic dispatch, chosen by the object's run-time class; overloading is resolved at compile time."
+  },
+  {
+   "u": 2,
+   "t": "abstract and final classes",
+   "type": "assertion_reason",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "analyze",
+   "diff": "medium",
+   "marks": 2,
+   "q": "Read the assertion and reason about abstract and final classes and choose the correct option.",
+   "assertion": "An abstract class cannot be instantiated.",
+   "reason": "An abstract class must declare at least one abstract method.",
+   "ans": "C",
+   "model": "A is true. R is false: a class can be declared abstract with no abstract methods."
+  },
+  {
+   "u": 2,
+   "t": "Defining Interfaces",
+   "type": "programming",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 6,
+   "q": "Define an interface Shape with a method double area(). Implement it in classes Circle and Rectangle, and write main() that stores both in a Shape[] array and prints the total area.",
+   "lang": "Java",
+   "model": "interface Shape { double area(); }\nclass Circle implements Shape { double r; Circle(double r) { this.r = r; } public double area() { return Math.PI * r * r; } }\nclass Rectangle implements Shape { double w, h; Rectangle(double w, double h) { this.w = w; this.h = h; } public double area() { return w * h; } }\n// main: Shape[] s = { new Circle(1), new Rectangle(2, 3) }; double t = 0; for (Shape x : s) t += x.area(); System.out.println(t);"
+  },
+  {
+   "u": 2,
+   "t": "Access protection",
+   "type": "short_answer",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "understand",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Explain the visibility of private, default (package), protected and public members to: the same class, another class in the same package, a subclass in another package, and an unrelated class in another package.",
+   "model": "private: same class only. default: same class and same package. protected: same package plus subclasses in other packages. public: everywhere."
+  },
+  {
+   "u": 3,
+   "t": "Checked and uncheced Exceptions",
+   "type": "mcq",
+   "co": [
+    "CO3"
+   ],
+   "bloom": "remember",
+   "diff": "easy",
+   "marks": 1,
+   "q": "Which of the following is a checked exception in Java?",
+   "opts": [
+    "NullPointerException",
+    "ArithmeticException",
+    "IOException",
+    "ArrayIndexOutOfBoundsException"
+   ],
+   "ans": "C",
+   "model": "IOException must be caught or declared; the others are RuntimeException subclasses (unchecked)."
+  },
+  {
+   "u": 3,
+   "t": "throw statement, throws clause",
+   "type": "programming",
+   "co": [
+    "CO3"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 6,
+   "q": "Define a checked exception InsufficientBalanceException. Write a method withdraw(double amount) that throws it when the balance is too low, and show a caller that handles it with try-catch-finally.",
+   "lang": "Java",
+   "model": "class InsufficientBalanceException extends Exception {\n    InsufficientBalanceException(String m) { super(m); }\n}\nvoid withdraw(double amount) throws InsufficientBalanceException {\n    if (amount > balance) throw new InsufficientBalanceException(\"Balance too low\");\n    balance -= amount;\n}\n// caller: try { acc.withdraw(500); } catch (InsufficientBalanceException e) { System.out.println(e.getMessage()); } finally { System.out.println(\"done\"); }"
+  },
+  {
+   "u": 3,
+   "t": "Producer/ consumer problems",
+   "type": "long_answer",
+   "co": [
+    "CO3"
+   ],
+   "bloom": "create",
+   "diff": "hard",
+   "marks": 8,
+   "q": "Design a bounded buffer of capacity 5 shared by a producer thread and a consumer thread using synchronized methods with wait() and notifyAll(). Explain why the condition is checked in a while loop.",
+   "model": "class Buffer { Queue<Integer> q = new LinkedList<>(); synchronized void put(int x) throws InterruptedException { while (q.size() == 5) wait(); q.add(x); notifyAll(); } synchronized int take() throws InterruptedException { while (q.isEmpty()) wait(); int x = q.remove(); notifyAll(); return x; } }. A while loop re-checks the condition after waking because of spurious wake-ups and because another thread may have changed the state first."
+  },
+  {
+   "u": 3,
+   "t": "Byte and Character Streams",
+   "type": "short_answer",
+   "co": [
+    "CO3"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 3,
+   "q": "Distinguish byte streams from character streams in Java and state which you would use to copy an image file and to read a text file containing Hindi text.",
+   "model": "Byte streams (InputStream/OutputStream) move raw 8-bit bytes; character streams (Reader/Writer) handle 16-bit characters with encoding. Image: FileInputStream/FileOutputStream. Hindi text: a Reader with the right charset (e.g. InputStreamReader with UTF-8)."
+  },
+  {
+   "u": 4,
+   "t": "Generics",
+   "type": "short_answer",
+   "co": [
+    "CO5"
+   ],
+   "bloom": "analyze",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Compare a raw List with List<String>: what error does each one catch, and when, if an Integer is added and later cast to String?",
+   "model": "With a raw List the add compiles and the cast fails at run time with ClassCastException. List<String> rejects the add at compile time, so the error is found earlier and no cast is needed (type safety)."
+  },
+  {
+   "u": 4,
+   "t": "ArrayList, LinkedList HashSet and ArrayDeque classes",
+   "type": "numerical",
+   "co": [
+    "CO5"
+   ],
+   "bloom": "apply",
+   "diff": "easy",
+   "marks": 1,
+   "q": "What does this print? Set<String> s = new HashSet<>(List.of(\"a\", \"b\", \"a\", \"c\", \"b\")); System.out.println(s.size());",
+   "val": 3,
+   "tol": 0,
+   "model": "A HashSet keeps distinct elements: a, b, c, so the size is 3."
+  },
+  {
+   "u": 4,
+   "t": "ArrayList, LinkedList HashSet and ArrayDeque classes",
+   "type": "case_study",
+   "co": [
+    "CO5",
+    "CO4"
+   ],
+   "bloom": "evaluate",
+   "diff": "hard",
+   "marks": 10,
+   "q": "For each requirement in the case, choose ArrayList, LinkedList, HashSet or ArrayDeque and justify your choice using the time complexity of the operations involved.",
+   "case": "A library system must (1) keep the catalogue so that books can be shown by position on a page, (2) record unique member IDs and check membership quickly, and (3) hold book-return requests that are processed strictly in arrival order, with frequent additions at the end and removals from the front.",
+   "model": "(1) ArrayList: O(1) indexed access. (2) HashSet: average O(1) add and contains, no duplicates. (3) ArrayDeque used as a queue: O(1) addLast and pollFirst without LinkedList's per-node overhead."
+  },
+  {
+   "u": 4,
+   "t": "Swings advantages over AWT",
+   "type": "short_answer",
+   "co": [
+    "CO4"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 3,
+   "q": "State three advantages of Swing components over AWT components.",
+   "model": "Swing components are lightweight (drawn in Java, not by native peers), have a pluggable look and feel, and offer richer controls such as JTable and JTree; they behave consistently across platforms."
+  },
+  {
+   "u": 5,
+   "t": "Event delegation model",
+   "type": "short_answer",
+   "co": [
+    "CO6"
+   ],
+   "bloom": "understand",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Explain the event delegation model in Java using a JButton click as an example, naming the source, the event object and the listener.",
+   "model": "The JButton (source) generates an ActionEvent when clicked and delivers it to the objects registered with addActionListener(); each listener implements ActionListener.actionPerformed(ActionEvent). Handling is delegated to the listeners."
+  },
+  {
+   "u": 5,
+   "t": "JBDC drivers(Type1 Driver,Type4 Driver)",
+   "type": "mcq",
+   "co": [
+    "CO6"
+   ],
+   "bloom": "remember",
+   "diff": "easy",
+   "marks": 1,
+   "q": "Which JDBC driver type is written entirely in Java and converts JDBC calls directly into the database's network protocol?",
+   "opts": [
+    "Type 1 (JDBC-ODBC bridge)",
+    "Type 2 (native API)",
+    "Type 3 (network protocol)",
+    "Type 4 (thin driver)"
+   ],
+   "ans": "D",
+   "model": "The Type 4 (thin) driver is pure Java and speaks the database protocol directly."
+  },
+  {
+   "u": 5,
+   "t": "Creating and executing SQL statements",
+   "type": "programming",
+   "co": [
+    "CO6"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 6,
+   "q": "Write Java code using JDBC that inserts a student (roll, name) into a table STUDENT with a PreparedStatement and then prints all rows. Explain why PreparedStatement is safer than building the SQL string by concatenation.",
+   "lang": "Java",
+   "model": "try (Connection c = DriverManager.getConnection(url, user, pass);\n     PreparedStatement ps = c.prepareStatement(\"INSERT INTO STUDENT(roll, name) VALUES (?, ?)\")) {\n    ps.setInt(1, roll); ps.setString(2, name); ps.executeUpdate();\n    try (Statement st = c.createStatement(); ResultSet rs = st.executeQuery(\"SELECT roll, name FROM STUDENT\")) {\n        while (rs.next()) System.out.println(rs.getInt(1) + \" \" + rs.getString(2));\n    }\n}\n// Parameters are sent separately from the SQL text, so input cannot change the query (prevents SQL injection)."
+  }
+ ]
+}

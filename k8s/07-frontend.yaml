@@ -1,0 +1,45 @@
+# Note: this frontend image is built with VITE_API_BASE_URL=/api baked in
+# (see frontend/Dockerfile), and nginx.conf proxies /api/* to a host named
+# "backend" — which matches this Service's name below, so no extra config
+# is needed for the proxy to resolve correctly inside the cluster.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: exam-portal
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app: frontend }
+  template:
+    metadata:
+      labels: { app: frontend }
+    spec:
+      # nginx-unprivileged base image: runs as uid 101 and listens on 8080 (frontend/nginx.conf).
+      securityContext: { runAsNonRoot: true, runAsUser: 101, runAsGroup: 101 }
+      containers:
+        - name: frontend
+          image: exam-portal-frontend:latest # replace with your built/pushed image tag
+          ports: [{ containerPort: 8080 }]
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities: { drop: ["ALL"] }
+          resources:
+            requests: { memory: "64Mi", cpu: "50m" }
+            limits: { memory: "128Mi", cpu: "200m" }
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 3
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: exam-portal
+spec:
+  selector: { app: frontend }
+  ports: [{ port: 80, targetPort: 8080 }]

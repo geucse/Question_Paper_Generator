@@ -1,0 +1,32 @@
+# Run once per deployment/schema-change (kubectl apply -f 05-migrate-job.yaml,
+# or kubectl delete job/exam-portal-migrate && kubectl apply -f ... to rerun
+# after adding new migration files) — deliberately not part of the backend
+# Deployment's own startup, same reasoning as docker-compose.prod.yml's
+# separate `migrate` service: a schema migration should be an explicit,
+# observable, one-time action.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: exam-portal-migrate
+  namespace: exam-portal
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: Never
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, runAsGroup: 1000 }
+      containers:
+        - name: migrate
+          image: exam-portal-backend:latest # replace with your built/pushed image tag
+          command: ["sh", "-c"]
+          args:
+            - "export DATABASE_URL=postgres://$DB_USER:$DB_PASSWORD@$DB_HOST:5432/$DB_NAME && node src/migrate.js"
+          env:
+            - name: DB_USER
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: DB_USER } }
+            - name: DB_HOST
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: DB_HOST } }
+            - name: DB_NAME
+              valueFrom: { configMapKeyRef: { name: exam-portal-config, key: DB_NAME } }
+            - name: DB_PASSWORD
+              valueFrom: { secretKeyRef: { name: exam-portal-secrets, key: DB_PASSWORD } }

@@ -1,0 +1,340 @@
+{
+ "code": "TCS 409",
+ "hod_flags": [
+  {
+   "co": "CO3",
+   "issue": "CO3 refers to backtracking and branch-and-bound techniques, but no unit of the printed TCS 409 syllabus (pages 57-59) covers them. No sample question can be grounded in CO3 until the HOD resolves this (add the topic in a new syllabus version or revise the CO). Used by demo Scenario B."
+  }
+ ],
+ "verified_topics": {
+  "1": [
+   "Asymptotic Notations",
+   "Master theorem",
+   "Fibonacci and solving its recursion"
+  ],
+  "2": [
+   "randomized quick sort",
+   "counting sort",
+   "stable sort",
+   "Comparison of sorting algorithms on the basis of number of swaps"
+  ],
+  "3": [
+   "topological sort",
+   "Kruskal and Prim algorithms",
+   "Dijkstra (Greedy Approach)",
+   "Bellman ford (Dynamic Programming)",
+   "The Floyd Warshall algorithm"
+  ],
+  "4": [
+   "Activity selection problem",
+   "fractional knapsack problem",
+   "Longest common subsequence",
+   "Matrix chain multiplication"
+  ],
+  "5": [
+   "The Rabin-Karp algorithm",
+   "The Knuth-Morris-Pratt algorithm",
+   "The subset-sum problem",
+   "The traveling salesman problem"
+  ]
+ },
+ "questions": [
+  {
+   "u": 1,
+   "t": "Master theorem",
+   "type": "short_answer",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 3,
+   "q": "Use the master theorem to solve T(n) = 4T(n/2) + n^2, stating which case applies.",
+   "model": "a = 4, b = 2, n^(log_b a) = n^2 = f(n): case 2, so T(n) = Theta(n^2 log n)."
+  },
+  {
+   "u": 1,
+   "t": "Asymptotic Notations",
+   "type": "true_false",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 1,
+   "q": "True or False: If f(n) = 3n^2 + 10 n log n, then f(n) = O(n^2).",
+   "ans": "TRUE",
+   "model": "True: n log n grows slower than n^2, so f(n) <= 13 n^2 for n >= 1."
+  },
+  {
+   "u": 1,
+   "t": "Fibonacci and solving its recursion",
+   "type": "numerical",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "analyze",
+   "diff": "medium",
+   "marks": 3,
+   "q": "The naive recursive function fib(n) returns n for n <= 1 and fib(n-1) + fib(n-2) otherwise. How many calls to fib (including the first) are made to compute fib(5)?",
+   "val": 15,
+   "tol": 0,
+   "model": "C(n) = C(n-1) + C(n-2) + 1 with C(0) = C(1) = 1: C(2) = 3, C(3) = 5, C(4) = 9, C(5) = 15. The count grows exponentially."
+  },
+  {
+   "u": 2,
+   "t": "counting sort",
+   "type": "short_answer",
+   "co": [
+    "CO1"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Sort the array [4, 1, 3, 4, 2, 1] with counting sort (values 1 to 4). Show the count array, the cumulative count array, and state the time complexity.",
+   "model": "Counts for 1..4: [2, 1, 1, 2]; cumulative: [2, 3, 4, 6]. Placing elements from right to left gives [1, 1, 2, 3, 4, 4] (stable). Time O(n + k) for n elements and range k."
+  },
+  {
+   "u": 2,
+   "t": "stable sort",
+   "type": "mcq",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 1,
+   "q": "Which of these sorting algorithms is NOT stable in its standard implementation?",
+   "opts": [
+    "Merge sort",
+    "Insertion sort",
+    "Bubble sort",
+    "Quick sort"
+   ],
+   "ans": "D",
+   "model": "Standard partitioning in quick sort can reorder equal keys."
+  },
+  {
+   "u": 2,
+   "t": "randomized quick sort",
+   "type": "assertion_reason",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "understand",
+   "diff": "medium",
+   "marks": 2,
+   "q": "Read the assertion and reason about randomized quick sort and choose the correct option.",
+   "assertion": "Randomized quick sort has expected running time O(n log n) on every input.",
+   "reason": "Choosing the pivot uniformly at random makes consistently bad splits unlikely, whatever the order of the input.",
+   "ans": "A",
+   "model": "Both are true, and the random pivot is why the expectation holds for every input."
+  },
+  {
+   "u": 2,
+   "t": "Comparison of sorting algorithms on the basis of number of swaps",
+   "type": "long_answer",
+   "co": [
+    "CO2",
+    "CO1"
+   ],
+   "bloom": "evaluate",
+   "diff": "hard",
+   "marks": 8,
+   "q": "Compare bubble sort, insertion sort, merge sort and heap sort on comparisons, swaps, stability, in-place operation and time complexity. Recommend one for sorting one million nearly sorted records when extra memory is very limited, and justify it.",
+   "model": "Bubble/insertion: O(n^2) worst, stable, in place; insertion is O(n + inversions) on nearly sorted data. Merge: O(n log n), stable, O(n) extra memory. Heap: O(n log n), in place, not stable, few swaps advantage lost. For nearly sorted data with little memory, insertion sort (few inversions, in place) or heap sort if the data may not be nearly sorted; insertion sort is best when inversions are few."
+  },
+  {
+   "u": 3,
+   "t": "Dijkstra (Greedy Approach)",
+   "type": "numerical",
+   "co": [
+    "CO5"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 4,
+   "q": "A directed graph has edges A->B (4), A->C (1), C->B (2), B->D (1), C->D (5). Using Dijkstra's algorithm from A, what is the shortest distance to D?",
+   "val": 4,
+   "tol": 0,
+   "model": "dist C = 1, B = min(4, 1 + 2) = 3, D = min(3 + 1, 1 + 5) = 4 via A-C-B-D."
+  },
+  {
+   "u": 3,
+   "t": "Bellman ford (Dynamic Programming)",
+   "type": "short_answer",
+   "co": [
+    "CO5",
+    "CO2"
+   ],
+   "bloom": "analyze",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Explain why Dijkstra's algorithm can give wrong answers on graphs with negative edge weights, and how the Bellman-Ford algorithm detects a negative-weight cycle.",
+   "model": "Dijkstra finalises a vertex when it is extracted, assuming later paths cannot be shorter; a negative edge can make them shorter. Bellman-Ford relaxes all edges V - 1 times; if any edge can still be relaxed in a V-th pass, a negative cycle is reachable."
+  },
+  {
+   "u": 3,
+   "t": "topological sort",
+   "type": "short_answer",
+   "co": [
+    "CO5"
+   ],
+   "bloom": "apply",
+   "diff": "easy",
+   "marks": 3,
+   "q": "Courses A to F have prerequisites A->C, B->C, C->D, B->E, D->F, E->F (X->Y means X before Y). Give a valid order in which to take the courses using topological sort, and state why the graph must be acyclic.",
+   "model": "One order: A, B, C, E, D, F (others are valid). A cycle would make some course its own prerequisite, so no linear order exists."
+  },
+  {
+   "u": 3,
+   "t": "Kruskal and Prim algorithms",
+   "type": "mcq",
+   "co": [
+    "CO5"
+   ],
+   "bloom": "remember",
+   "diff": "easy",
+   "marks": 1,
+   "q": "What is the time complexity of Kruskal's algorithm using sorting and a union-find structure, for a graph with V vertices and E edges?",
+   "opts": [
+    "O(V^2)",
+    "O(E log E)",
+    "O(V + E)",
+    "O(E V)"
+   ],
+   "ans": "B",
+   "model": "Sorting the edges dominates: O(E log E) (= O(E log V)); union-find operations are nearly constant."
+  },
+  {
+   "u": 3,
+   "t": "The Floyd Warshall algorithm",
+   "type": "fill_blank",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "remember",
+   "diff": "easy",
+   "marks": 2,
+   "q": "The Floyd-Warshall algorithm computes all-pairs shortest paths in ___ time and is an example of ___ programming.",
+   "answers": [
+    "O(V^3)",
+    "dynamic"
+   ],
+   "model": "Three nested loops over vertices: O(V^3); it is dynamic programming over intermediate vertices."
+  },
+  {
+   "u": 4,
+   "t": "Activity selection problem",
+   "type": "numerical",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 3,
+   "q": "Activities (start, finish): (1,4), (3,5), (0,6), (5,7), (3,9), (5,9), (6,10), (8,11), (8,12), (2,14), (12,16). Using the greedy earliest-finish rule, how many mutually compatible activities are selected?",
+   "val": 4,
+   "tol": 0,
+   "model": "Select (1,4), (5,7), (8,11), (12,16): 4 activities."
+  },
+  {
+   "u": 4,
+   "t": "fractional knapsack problem",
+   "type": "numerical",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 3,
+   "q": "Knapsack capacity 50. Items (value, weight): (60, 10), (100, 20), (120, 30). What is the maximum value using the fractional knapsack greedy algorithm?",
+   "val": 240,
+   "tol": 0,
+   "model": "Ratios 6, 5, 4: take items 1 and 2 fully (160, weight 30), then 20/30 of item 3 (80): total 240."
+  },
+  {
+   "u": 4,
+   "t": "Longest common subsequence",
+   "type": "long_answer",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "apply",
+   "diff": "hard",
+   "marks": 8,
+   "q": "Using dynamic programming, find the length of the longest common subsequence of X = ABCBDAB and Y = BDCABA, give one LCS, and state the time complexity.",
+   "model": "Fill the (m+1) x (n+1) table with c[i][j] = c[i-1][j-1] + 1 if x_i = y_j else max(c[i-1][j], c[i][j-1]). Length 4; one LCS is BCBA (others: BDAB, BCAB). Time O(mn)."
+  },
+  {
+   "u": 4,
+   "t": "Matrix chain multiplication",
+   "type": "numerical",
+   "co": [
+    "CO2"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 3,
+   "q": "Matrices A (10 x 30), B (30 x 5) and C (5 x 60) are to be multiplied. What is the minimum number of scalar multiplications needed?",
+   "val": 4500,
+   "tol": 0,
+   "model": "(AB)C = 10x30x5 + 10x5x60 = 1500 + 3000 = 4500; A(BC) = 30x5x60 + 10x30x60 = 27000. Minimum 4500."
+  },
+  {
+   "u": 5,
+   "t": "The Rabin-Karp algorithm",
+   "type": "short_answer",
+   "co": [
+    "CO6"
+   ],
+   "bloom": "analyze",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Explain why the Rabin-Karp algorithm must compare characters after a hash match, and state its expected and worst-case running times for text length n and pattern length m.",
+   "model": "Different strings can share a hash value (spurious hit), so a match must be verified character by character. Expected O(n + m) with a good rolling hash; worst case O(nm) when many spurious hits occur."
+  },
+  {
+   "u": 5,
+   "t": "The Knuth-Morris-Pratt algorithm",
+   "type": "short_answer",
+   "co": [
+    "CO6"
+   ],
+   "bloom": "apply",
+   "diff": "medium",
+   "marks": 4,
+   "q": "Compute the KMP prefix (failure) function for the pattern ABABCABAB and explain how it avoids re-examining text characters.",
+   "model": "pi = [0, 0, 1, 2, 0, 1, 2, 3, 4]. On a mismatch after matching q characters, the pattern shifts so that pi[q] characters stay matched; the text pointer never moves back, giving O(n + m)."
+  },
+  {
+   "u": 5,
+   "t": "The subset-sum problem",
+   "type": "true_false",
+   "co": [
+    "CO4"
+   ],
+   "bloom": "understand",
+   "diff": "easy",
+   "marks": 1,
+   "q": "True or False: Given a proposed subset, we can check in polynomial time whether its elements add up to the target, so the subset-sum problem is in NP.",
+   "ans": "TRUE",
+   "model": "True: a certificate (the subset) is verified by summing it in polynomial time."
+  },
+  {
+   "u": 5,
+   "t": "The traveling salesman problem",
+   "type": "case_study",
+   "co": [
+    "CO4",
+    "CO5"
+   ],
+   "bloom": "evaluate",
+   "diff": "hard",
+   "marks": 10,
+   "q": "For the case, explain why an exact optimal route is impractical to guarantee, classify the decision version of the problem, and evaluate a suitable approach the company could use instead.",
+   "case": "A courier company in Dehradun must plan a daily route for one van that starts at the depot, visits 40 delivery points exactly once and returns, minimising the total distance. Road distances are symmetric and satisfy the triangle inequality.",
+   "model": "This is the travelling salesman problem; its decision version is NP-complete, so no polynomial-time exact algorithm is known and brute force needs (n-1)!/2 tours. With the triangle inequality, an MST-based 2-approximation or Christofides (1.5) gives provable bounds; heuristics such as nearest neighbour plus 2-opt give good routes quickly. Recommend an approximation with local improvement, accepting near-optimal routes."
+  }
+ ]
+}

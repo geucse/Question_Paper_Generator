@@ -1,0 +1,157 @@
+name: exam-portal
+
+# Production-style compose file: unlike docker-compose.yml (dev-only Postgres),
+# this builds and runs the actual application containers. Both images are built
+# locally and in CI (docker build); this whole stack (ClamAV signatures, SMTP,
+# TLS in front of it) has not been brought up end-to-end, so validate it on
+# your own server before relying on it.
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-examportal}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in .env.prod}
+      POSTGRES_DB: ${DB_NAME:-examportal}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-examportal} -d ${DB_NAME:-examportal}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks: [internal]
+
+  # Official ClamAV image: fetches its own virus definitions on startup via
+  # freshclam, which needs outbound internet access to database.clamav.net —
+  # confirm your production network allows that (not exercised by CI or by
+  # run-checks.sh, which use a fake clamd).
+  clamav:
+    image: clamav/clamav:1.3
+    restart: unless-stopped
+    volumes:
+      - clamav_data:/var/lib/clamav
+    healthcheck:
+      test: ["CMD-SHELL", "echo PING | nc -w 3 localhost 3310 | grep -q PONG"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s # first boot needs time to download signatures
+    networks: [internal]
+
+  # Shared rate-limit state across backend replicas (backend/src/redis.js). Required in
+  # production: while Redis is down (including at backend startup) the backend refuses
+  # rate-limited requests (503) and /api/health/ready reports not-ready, instead of silently
+  # running without the shared limit; it reconnects by itself, never crash-loops.
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks: [internal]
+
+  # Runs migrations once and exits — kept separate from the backend's own
+  # startup so a schema migration is an explicit, logged, one-time step
+  # rather than something that happens silently whenever a backend pod
+  # restarts (see backend/Dockerfile's comment on this).
+  migrate:
+    build: ./backend
+    command: ["node", "src/migrate.js"]
+    environment:
+      DATABASE_URL: postgres://${DB_USER:-examportal}:${DB_PASSWORD}@postgres:5432/${DB_NAME:-examportal}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks: [internal]
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://${DB_USER:-examportal}:${DB_PASSWORD}@postgres:5432/${DB_NAME:-examportal}
+      # Least-privilege runtime role (see backend/deploy/create-app-role.sql) —
+      # falls back to DATABASE_URL automatically if this isn't set, so this
+      # is safe to leave blank while you're still setting up the role.
+      APP_DATABASE_URL: ${APP_DATABASE_URL:-}
+      NODE_ENV: production
+      REDIS_URL: redis://redis:6379
+      RATE_LIMIT_STORE: redis
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env.prod}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      # Native clamd protocol over TCP (backend/src/antivirus.js); no clamdscan in the image.
+      CLAMD_HOST: clamav
+      CLAMD_PORT: 3310
+      PORT: 4000
+      INSTITUTION_NAME: ${INSTITUTION_NAME:-}
+      INSTITUTION_LOGO_PATH: ${INSTITUTION_LOGO_PATH:-}
+      PAPER_GENERAL_INSTRUCTIONS: ${PAPER_GENERAL_INSTRUCTIONS:-}
+      # The backend refuses to start in production unless every setting below is valid
+      # (backend/src/runtime-config.js). None of the dev-only flags (DEV_OTP_CONSOLE,
+      # DEV_EXPOSE_ACCOUNT_SETUP_TOKEN) belong here; production refuses them too.
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:?set CORS_ALLOWED_ORIGINS in .env.prod}
+      # Proxy hops in front of the backend: the frontend nginx (1); 2 when a TLS proxy sits in front of it.
+      TRUST_PROXY: ${TRUST_PROXY:-1}
+      OTP_DELIVERY_PROVIDER: smtp
+      SMTP_HOST: ${SMTP_HOST:?set SMTP_HOST in .env.prod}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_SECURE: ${SMTP_SECURE:-false}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_FROM: ${SMTP_FROM:?set SMTP_FROM in .env.prod}
+      TOTP_ENCRYPTION_KEY: ${TOTP_ENCRYPTION_KEY:?set TOTP_ENCRYPTION_KEY in .env.prod (openssl rand -hex 32)}
+      PORTAL_URL: ${PORTAL_URL:-}
+      ACCOUNT_INVITE_TTL_HOURS: ${ACCOUNT_INVITE_TTL_HOURS:-72}
+      ATTACHMENT_RESCAN_INTERVAL_MS: ${ATTACHMENT_RESCAN_INTERVAL_MS:-600000}
+      AUTO_BLOCK_MINUTES: ${AUTO_BLOCK_MINUTES:-60}
+      # Set to "yes" for ONE start to rotate TOTP_ENCRYPTION_KEY on purpose (audited; every authenticator must be
+      # set up again); otherwise a key that differs from the database's key check refuses to start.
+      TOTP_KEY_ROTATE: ${TOTP_KEY_ROTATE:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      clamav:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    volumes:
+      - backend_uploads:/app/uploads
+    networks: [internal]
+    healthcheck:
+      # Readiness: database, Redis, OTP delivery and the TOTP key (a ClamAV outage reports degraded, still 200).
+      # Anonymous callers get only {"status"}; the details are on the admin's System tab.
+      test: ["CMD-SHELL", "node -e \"fetch('http://localhost:4000/api/health/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))\""]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE_URL: /api
+        VITE_INSTITUTION_NAME: ${VITE_INSTITUTION_NAME:-Graphic Era}
+        VITE_BRAND_LOGO_URL: ${VITE_BRAND_LOGO_URL:-}
+    restart: unless-stopped
+    ports:
+      # The frontend image runs nginx as a non-root user, listening on 8080 inside the container.
+      - "${FRONTEND_PORT:-80}:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks: [internal]
+
+networks:
+  internal:
+
+volumes:
+  pg_data:
+  clamav_data:
+  redis_data:
+  backend_uploads:
